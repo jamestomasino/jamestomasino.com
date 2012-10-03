@@ -17,12 +17,11 @@ CACHE MANIFEST
 CACHE:
 index.html
 css/main.css
-images/checker.png
 js/main.js
+images/checker.png
 
 NETWORK:
 *
 
 FALLBACK:
 images/ images/offline.gif
-
