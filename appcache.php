@@ -18,10 +18,7 @@ CACHE:
 index.html
 css/main.css
 images/checker.png
-js/jquery-1.8.2.min.js
-js/modernizr.min.js
-js/AppCacheMediator.class.js
-js/scripts.js
+js/main.js
 
 NETWORK:
 *
