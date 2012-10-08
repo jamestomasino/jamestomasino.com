@@ -45,7 +45,7 @@
 
 		var i = sizes.length; while (i--) {
 			var photo = sizes[i];
-			if (photo.label == 'Large 1600' || photo.label == 'Large' )
+			if ( photo.label == 'Large' )
 			{
 				this.currentURL = photo.source;
 				this.currentHeight = Number(photo.height);

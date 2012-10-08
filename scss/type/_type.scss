@@ -2,3 +2,15 @@
 @import "fonts";
 
 @include establish-baseline;
+
+.work {
+
+	nav {
+		@include adjust-font-size-to(36px);
+		
+		a {
+			color: #000;
+			text-decoration: none;
+		}
+	}
+}
