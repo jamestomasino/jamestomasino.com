@@ -1,5 +1,7 @@
 .sass-cache/*
 css/main.css
+js/preload.js
+js/preload.js.gz
 js/main.js
 js/main.js.gz
 Gemfile.lock

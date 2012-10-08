@@ -17,6 +17,7 @@ CACHE MANIFEST
 CACHE:
 index.html
 css/main.css
+js/preload.js
 js/main.js
 images/checker.png
 http://www.google-analytics.com/ga.js

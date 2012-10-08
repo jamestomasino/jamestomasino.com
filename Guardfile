@@ -15,3 +15,8 @@ end
 guard 'sprockets', :destination => 'js', :asset_paths => ['sjs'], :root_file   => 'sjs/main.js', :minify => false do
   watch(%r{^sjs/.*\.(js|coffee)})
 end
+
+guard 'sprockets', :destination => 'js', :asset_paths => ['sjs'], :root_file   => 'sjs/preload.js', :minify => true do
+  watch(%r{^sjs/.*\.(js|coffee)})
+end
+
