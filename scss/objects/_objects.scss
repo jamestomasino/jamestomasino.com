@@ -2,7 +2,7 @@
 
 	.work {
 		@include single-box-shadow( rgba(0,0,0,.5), 0px, 0px, 15px);
-		@include background( linear-gradient( color-stops( rgba( 255, 255, 255, 0.8 ), rgba( 255, 255, 255, 0.5 ))));
+		@include background( linear-gradient( color-stops( rgba( 255, 255, 255, 0.9 ), rgba( 255, 255, 255, 0.7 ))));
 		@include border-corner-radius(top, left, 40px);
 		@include border-corner-radius(top, right, 5px);
 		@include border-corner-radius(bottom, left, 15px);
@@ -15,6 +15,6 @@
 
 	.flickr {
 		@include background-size(cover);
-		//@include filter ( saturate(15%) );
+		@include filter ( saturate(15%) );
 	}
 }

@@ -1,49 +1,51 @@
 {
 	"section": [
 		{
+			"id": "resume",
+			"url": "http://www.jamestomasino.com/resume/resume.pdf",
+			"desc": "<p>Download my latest resume for a listing of my current goals and past work history.</p><p>Please reach out to me for clarification, more details, or references.</p>",
+			"title": "Resume"
+		},
+		{
 			"id": "cardcreator",
 			"url": "http://jamestomasino.com/archive/sprout/cardcreator/",
-			"title": "Sprout Holiday Card Creator"
+			"desc": "<p>The beloved childrens' television channel loves to build toys and games. In this project, they asked for a site where very young kids could build holiday cards for their family. It needed to be skinnable for several holidays and extremely simple to use (no draging). Using this framework, we were able to generate a new holiday site in about an hour of development time.</p>",
+			"title": "Sprout Card Creator"
 		},
 
 		{
 			"id": "batman",
 			"url": "http://www.jamestomasino.com/archive/verizon/batman/",
-			"title": "Batman: The Dark Knight - Nokia Microsite"
+			"desc": "<p>Winner of a Gold Addy in 2009, this site was a partnering with Nokia and Verizon Wireless to launch a branded cellphone for the release of The Dark Knight. The microsite incroporates 3D and video, sophisticated video-tracking viral experience, mobile game, and branded content.</p><p>I was the lead developer on this project over a team of four others.</p>",
+			"title": "Batman: The Dark Knight"
 		},
 
 		{
 			"id": "rogersplayer",
 			"url": "http://jamestomasino.com/archive/rogers/",
-			"title": "Rogers On Demand Player"
+			"desc": "<p>This project was a Hulu-style video on demand website for Rogers, the Canadian TelCom. I primarily built the Flash video player, but also worked on other areas of the site, including the homepage A-spot.</p><p>The <a href='http://www.rogersondemand.com'>live website</a> is geo-restricted to Canada.",
+			"title": "Rogers On Demand"
 		},
 
 		{
 			"id": "voyager",
 			"url": "http://www.jamestomasino.com/archive/verizon/voyager/",
-			"title": "Verizon Voyager Microsite"
+			"desc": "<p>The Verizon Wireless cellphone rich landing pages were ovehauled in 2007 with this microsite. The framework I built was based upon extensive user testing and designed for easy skinning and customization. As a testament to its success, this template was used for three years and over fifty iterations before its redesign.</p>",
+			"title": "LG Voyager Microsite"
 		},
 
 		{
 			"id": "fios",
 			"url": "http://www.jamestomasino.com/archive/verizon/fioshddomination/",
+			"desc": "<p>The FiOS TV HD microsite was launched with the 2008 announcement of the new service. The microsite was designed for longevity and based off of a number of independent modules that could be swapped easily by designers or developers without worrying about code conflicts.</p>",
 			"title": "Verizon FiOS Microsite"
 		},
 
 		{
-			"id": "spaces",
-			"url": "http://jamestomasino.com/archive/atg/spaces/",
-			"title": "ATG Spaces Hero Spot"
-		},
-		{
 			"id": "boobs",
 			"url": "http://www.jamestomasino.com/archive/fox/boobs/",
-			"title": "Fox &quot;College&quot; Microsite - &quot;Boobs&quot; Banner"
-		},
-		{
-			"id": "resume",
-			"url": "http://www.jamestomasino.com/resume/resume.pdf",
-			"title": "Resume"
+			"desc": "<p>This older project was a very unique challenge. The concept was to be able to draw on the chest of girls in bikinis and send the drawings to a friend.</p><p>The result required advanced matrix transformations for live 3D mapping to video. Quite a challenge, and it all fits in a banner ad.</p>",
+			"title": "&quot;College&quot;: Boobs Banner"
 		}
 
 	]
