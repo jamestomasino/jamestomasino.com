@@ -20,6 +20,8 @@ css/main.css
 js/preload.js
 js/main.js
 images/checker.png
+data/portfolio.json
+templates/section.handlebars
 http://www.google-analytics.com/ga.js
 
 NETWORK:
