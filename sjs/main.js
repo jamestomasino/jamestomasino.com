@@ -37,5 +37,5 @@ function onDataLoad ( section, data ) {
 }
 
 function onDataFail ( error ) {
-	$('.maincontent').html('<h1 class="error">There was an error loading site data.</h1>')
+	$('.maincontent').html('<section id="error" class="work"> <article> <header> <h1>There was an error loading the data.</h1> </header> </article> </section> ');
 }
