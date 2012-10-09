@@ -3,29 +3,42 @@
 
 @include establish-baseline;
 
-.work {
-	@include optima;
-	
+
+header {
+	@include sushi;
+	@include adjust-font-size-to(14px);
+	@include trailer();
+}
+
+.intro {
+
 	header {
-		@include adjust-font-size-to(16px);
-		@include trailer();
+		@include adjust-font-size-to(18px);
 	}
+}
 
-	p {
-		@include adjust-font-size-to(12px);
-		line-height: 14px;
+p {
+	@include sushi;
+	@include adjust-font-size-to(12px);
+	line-height: 13px;
+}
+
+nav {
+	@include sushi;
+	@include adjust-font-size-to(36px);
+
+}
+
+a {
+	color: #555;
+	text-decoration: none;
+	font-weight: bold;
+
+	&:hover {
+		color: #222;
 	}
+}
 
-	nav {
-		@include adjust-font-size-to(36px);
-		
-		a {
-			color: #555;
-			text-decoration: none;
-
-			&:hover {
-				color: #222;
-			}
-		}
-	}
+em {
+	font-style: italic;
 }
