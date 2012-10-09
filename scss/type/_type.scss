@@ -5,7 +5,7 @@
 
 
 header {
-	@include sushi;
+	@include optima;
 	@include adjust-font-size-to(14px);
 	@include trailer();
 }
@@ -18,13 +18,13 @@ header {
 }
 
 p {
-	@include sushi;
+	@include optima;
 	@include adjust-font-size-to(12px);
 	line-height: 13px;
 }
 
 nav {
-	@include sushi;
+	@include optima;
 	@include adjust-font-size-to(36px);
 
 }
