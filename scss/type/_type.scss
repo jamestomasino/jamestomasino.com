@@ -3,39 +3,63 @@
 
 @include establish-baseline;
 
-
 header {
-	@include optima;
-	@include adjust-font-size-to(14px);
-	@include trailer();
+	@include font-heading;
+}
+
+p {
+	@include font-body;
 }
 
 .intro {
 
 	header {
+		@include adjust-font-size-to(80px);
+
+		@media screen and (max-width: $break-large) {
+			@include adjust-font-size-to(50px);
+		}
+	}
+
+	p {
+		@include adjust-font-size-to(14px);
+		@include trailer();
+		text-align: left;
+	}
+
+}
+
+.work {
+	header {
 		@include adjust-font-size-to(18px);
+		line-height: 18px;
+		@include trailer();
+		text-align: right;
+	}
+
+	p {
+		@include adjust-font-size-to(14px);
+		text-align: justify;
 	}
 }
 
-p {
-	@include optima;
-	@include adjust-font-size-to(12px);
-	line-height: 13px;
-}
+#resume {
+	a {
+		color: #e10000;
 
-nav {
-	@include optima;
-	@include adjust-font-size-to(36px);
-
+		&:hover {
+			color: #660000;
+		}
+	}
 }
 
 a {
-	color: #555;
+	color: #777;
 	text-decoration: none;
 	font-weight: bold;
 
 	&:hover {
-		color: #222;
+		color: #000;
 	}
 }
 

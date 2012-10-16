@@ -1,23 +1,10 @@
-@mixin cambria () {
-	font-family: Cambria, Georgia, serif;
+@include font-face("Raleway", font-files("../fonts/raleway.woff", "../fonts/raleway.otf", "../fonts/raleway.ttf", "../fonts/raleway.svg"));
+
+@mixin font-heading () {
+	font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-weight: 100;
 }
 
-@mixin baskerville () {
-	font-family: Baskerville, Garamond, Palatino, "Palatino Linotype", "Hoefler Text", "Times New Roman", serif;
-}
-
-@mixin sushi () {
-	font-family: "Hoefler Text", Constantia, Palatino, "Palatino Linotype", "Book Antiqua", Georgia, serif;
-}
-
-@mixin didot () {
-	font-family: Didot, "Didot LT STD", "Hoefler Text", Garamond, "Times New Roman", serif;
-}
-
-@mixin constantia () {
-	font-family: Constantia, Palatino, "Palatino Linotype", "Palatino LT STD", Georgia, serif;
-}
-
-@mixin optima () {
+@mixin font-body () {
 	font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
 }
