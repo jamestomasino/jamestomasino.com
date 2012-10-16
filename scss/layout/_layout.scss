@@ -7,23 +7,34 @@
 	z-index: 1;
 	width: 100%;
 	text-align: center;
+	white-space-collapsing:discard;
 
 	.intro {
 		display: block;
 		position: relative;
-		width: 75%;
-		max-width: 700px;
 		margin: 40px auto;
+		padding: 0;
+		max-width: ($work-block-width * 3) + ($work-block-padding * 4) + ($work-block-margin * 4) + ( 3px * 2); // for inline-block spacers
+
+		@media screen and (max-width: $break-3col) {
+			max-width: ($work-block-width * 2) + ($work-block-margin * 2) + ($work-block-padding * 2);
+		}
+
+		@media screen and (max-width: $break-2col) {
+			max-width: $work-block-width;
+		}
 	}
 
 	.work {
 		position: relative;
 		@include inline-block;
-		width: 250px;
-		max-height: 250px;
+		@include box-sizing(content-box);
+		border-collapse: collapse;
+		width: $work-block-width;
+		max-height: $work-block-height;
 		vertical-align: top;
-		padding: 20px;
-		margin: 9px;
+		padding: $work-block-padding;
+		margin: $work-block-margin;
 
 		p {
 			@include trailer;

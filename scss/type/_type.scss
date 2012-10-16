@@ -14,52 +14,53 @@ p {
 .intro {
 
 	header {
-		@include adjust-font-size-to(80px);
+		@include adjust-font-size-to( $intro-header-large );
 
-		@media screen and (max-width: $break-large) {
-			@include adjust-font-size-to(50px);
+		@media screen and (max-width: $break-2col) {
+			@include adjust-font-size-to( $intro-header-small );
+			@include trailer();
 		}
 	}
 
 	p {
-		@include adjust-font-size-to(14px);
+		@include adjust-font-size-to( $intro-body );
 		@include trailer();
-		text-align: left;
+		text-align: justify;
 	}
 
 }
 
 .work {
 	header {
-		@include adjust-font-size-to(18px);
+		@include adjust-font-size-to( $work-header );
 		line-height: 18px;
 		@include trailer();
 		text-align: right;
 	}
 
 	p {
-		@include adjust-font-size-to(14px);
+		@include adjust-font-size-to( $work-body );
 		text-align: justify;
 	}
 }
 
 #resume {
 	a {
-		color: #e10000;
+		color: $resume;
 
 		&:hover {
-			color: #660000;
+			color: $resume-hover;
 		}
 	}
 }
 
 a {
-	color: #777;
+	color: $work;
 	text-decoration: none;
 	font-weight: bold;
 
 	&:hover {
-		color: #000;
+		color: $work-hover;
 	}
 }
 
