@@ -1,8 +1,28 @@
 /*  ---- Colors ----  */
+$work: #47a;
+$work-hover: darken( $work, 30% );
+$resume: #E10000;
+$resume-hover: darken( $resume, 30% );
 
 /*  ---- Layout ----  */
+$work-block-height: 250px;
+$work-block-width: 250px;
+$work-block-padding: 20px;
+$work-block-margin: 0;
+$full-work-block-width: ( $work-block-width + ( $work-block-padding * 2) + ( $work-block-margin * 2 ) );
+$break-2col: $full-work-block-width * 2;
+$break-3col: $full-work-block-width * 3;
+$break-4col: $full-work-block-width * 4;
 $break-large: 500px;
+
 
 /*  ----  Type  ----  */
 $base-font-size: 16px;
 $base-line-height: 18px;
+
+/*  ----  Type Sizes ----  */
+$intro-header-large: 80px;
+$intro-header-small: 50px;
+$intro-body: 14px;
+$work-header: 18px;
+$work-body: 14px;
