@@ -39,14 +39,6 @@
 			"url": "http://www.jamestomasino.com/archive/verizon/fioshddomination/",
 			"desc": "<p>The FiOS TV HD microsite was launched with the 2008 announcement of the new service. The microsite was designed for longevity and based off of a number of independent modules that could be swapped easily by designers or developers without worrying about code conflicts.</p>",
 			"title": "Verizon FiOS Microsite"
-		},
-
-		{
-			"id": "boobs",
-			"url": "http://www.jamestomasino.com/archive/fox/boobs/",
-			"desc": "<p>This older project was a very unique challenge. The concept was to be able to draw on the chest of girls in bikinis and send the drawings to a friend.</p><p>The result required advanced matrix transformations for live 3D mapping to video. Quite a challenge, and it all fits in a banner ad.</p>",
-			"title": "&quot;College&quot;: Boobs Banner"
 		}
-
 	]
 }
