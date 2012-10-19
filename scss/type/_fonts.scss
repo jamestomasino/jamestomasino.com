@@ -1,4 +1,5 @@
 @include font-face("Raleway", font-files("../fonts/raleway.woff", "../fonts/raleway.otf", "../fonts/raleway.ttf", "../fonts/raleway.svg"));
+@include font-face("Sail", font-files("../fonts/sail.woff", "../fonts/sail.otf", "../fonts/sail.ttf", "../fonts/sail.svg"));
 
 @mixin font-heading () {
 	font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -7,4 +8,8 @@
 
 @mixin font-body () {
 	font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+}
+
+@mixin font-quote () {
+	font-family: Sail, Georgia, "MS Mincho", Didot, Arial, sans-serif;
 }

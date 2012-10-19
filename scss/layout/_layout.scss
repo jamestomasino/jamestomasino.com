@@ -1,5 +1,4 @@
 .maincontent {
-
 	display: block;
 	position: absolute;
 	top: 0;
@@ -13,33 +12,67 @@
 		display: block;
 		position: relative;
 		margin: 40px auto;
-		padding: 0;
-		max-width: ($work-block-width * 3) + ($work-block-padding * 4) + ($work-block-margin * 4) + ( 3px * 2); // for inline-block spacers
+		padding: 25px;
+		max-width: $full-work-content-width;
 
 		@media screen and (max-width: $break-3col) {
-			max-width: ($work-block-width * 2) + ($work-block-margin * 2) + ($work-block-padding * 2);
+			max-width: $two-col-work-content-width;
 		}
 
 		@media screen and (max-width: $break-2col) {
-			max-width: $work-block-width;
+			max-width: $one-col-work-content-width;
 		}
 	}
 
-	.work {
+	.portfolio {
 		display: block;
 		position: relative;
-		float: left;
-		@include box-sizing(content-box);
-		border-collapse: collapse;
-		width: $work-block-width;
-		max-height: $work-block-height;
-		vertical-align: top;
-		padding: $work-block-padding;
-		margin: $work-block-margin;
+		margin: 0 auto;
+		padding: 0;
+		max-width: $full-work-content-width + 50;
+		text-align: left;
 
-		p {
-			@include trailer;
+		@media screen and (max-width: $break-3col) {
+			max-width: $two-col-work-content-width + 50; // 50 to cover extra margin/padding/block stuff
+		}
+
+		@media screen and (max-width: $break-2col) {
+			max-width: $one-col-work-content-width + 40; // 40 to cover extra margin/padding/block stuff
+		}
+
+		.work {
+			position: relative;
+			@include inline-block;
+			@include box-sizing(content-box);
+			border-collapse: collapse;
+			width: $work-block-width;
+			max-height: $work-block-height;
+			vertical-align: top;
+			padding: $work-block-padding;
+			margin: $work-block-margin;
+
+			p {
+				@include trailer;
+			}
 		}
 	}
+
+	.twitter {
+		display: block;
+		position: relative;
+		margin: 40px auto;
+		padding: 25px;
+		text-align: left;
+		max-width: $full-work-content-width;
+
+		@media screen and (max-width: $break-3col) {
+			max-width: $two-col-work-content-width;
+		}
+
+		@media screen and (max-width: $break-2col) {
+			max-width: $one-col-work-content-width;
+		}
+	}
+
 }
 
