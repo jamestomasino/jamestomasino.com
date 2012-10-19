@@ -9,7 +9,7 @@ header {
 
 p {
 	@include font-body;
-	@include adjust-font-size-to( $intro-body );
+	@include adjust-font-size-to( $body );
 	@include trailer();
 	text-align: justify;
 }
@@ -38,10 +38,6 @@ em {
 			@include trailer();
 		}
 	}
-
-	p {
-	}
-
 }
 
 .portfolio {
@@ -112,7 +108,7 @@ em {
 
 			@media screen and (max-width: $break-2col) {
 				@include adjust-font-size-to( $twitter-body - 2px );
-				padding-right: 0px;
+				padding-right: 0;
 			}
 
 		}
