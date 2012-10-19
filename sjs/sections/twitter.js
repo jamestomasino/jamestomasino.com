@@ -8,7 +8,7 @@ var twitterTemplate = {
 
 Chirp({
   user: 'mr_ino', //Twitter username
-  max: 10, //Maximum number of tweets to show
+  max: 5, //Maximum number of tweets to show
   count: 100, //Total tweets to retrieve
   retweets: true, //Show/Don't show retweets
   replies: false,  //Show/Don't show replies
