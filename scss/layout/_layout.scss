@@ -26,8 +26,9 @@
 	}
 
 	.work {
+		display: block;
 		position: relative;
-		@include inline-block;
+		float: left;
 		@include box-sizing(content-box);
 		border-collapse: collapse;
 		width: $work-block-width;
