@@ -9,49 +9,9 @@ header {
 
 p {
 	@include font-body;
-}
-
-.intro {
-
-	header {
-		@include adjust-font-size-to( $intro-header-large );
-
-		@media screen and (max-width: $break-2col) {
-			@include adjust-font-size-to( $intro-header-small );
-			@include trailer();
-		}
-	}
-
-	p {
-		@include adjust-font-size-to( $intro-body );
-		@include trailer();
-		text-align: justify;
-	}
-
-}
-
-.work {
-	header {
-		@include adjust-font-size-to( $work-header );
-		line-height: 18px;
-		@include trailer();
-		text-align: right;
-	}
-
-	p {
-		@include adjust-font-size-to( $work-body );
-		text-align: justify;
-	}
-}
-
-#resume {
-	a {
-		color: $resume;
-
-		&:hover {
-			color: $resume-hover;
-		}
-	}
+	@include adjust-font-size-to( $intro-body );
+	@include trailer();
+	text-align: justify;
 }
 
 a {
@@ -66,4 +26,101 @@ a {
 
 em {
 	font-style: italic;
+}
+
+.intro {
+
+	header {
+		@include adjust-font-size-to( $intro-header-large );
+
+		@media screen and (max-width: $break-2col) {
+			@include adjust-font-size-to( $intro-header-small );
+			@include trailer();
+		}
+	}
+
+	p {
+	}
+
+}
+
+.portfolio {
+	.work {
+		header {
+			@include adjust-font-size-to( $work-header );
+			line-height: 18px;
+			@include trailer();
+			text-align: right;
+		}
+
+		p {
+			@include adjust-font-size-to( $work-body );
+			text-align: justify;
+		}
+	}
+
+	#resume {
+		a {
+			color: $resume;
+
+			&:hover {
+				color: $resume-hover;
+			}
+		}
+	}
+}
+
+.twitter {
+
+	position: relative;
+
+	header {
+		@include adjust-font-size-to( $twitter-header );
+		line-height: 18px;
+		@include trailer();
+		text-align: right;
+	}
+	.tweet {
+		clear: both;
+		position: relative;
+		display: block;
+		@include font-body;
+		@include adjust-font-size-to( $twitter-body );
+		@include trailer(3);
+		text-align: justify;
+
+		.tweet-prefix {
+			position: absolute;
+			top: -25px;
+			left: -25px;
+			color: $twitter-quote;
+			@include font-quote;
+			@include adjust-font-size-to( 120px );
+
+			@media screen and (max-width: $break-2col) {
+				@include adjust-font-size-to( 80px );
+			}
+
+		}
+
+		.tweet-body {
+			@include adjust-font-size-to( $twitter-body );
+			line-height: $twitter-body + 4;
+			display: block;
+			padding-left: 35px;
+			padding-right: 70px;
+
+			@media screen and (max-width: $break-2col) {
+				@include adjust-font-size-to( $twitter-body - 2px );
+				padding-right: 0px;
+			}
+
+		}
+
+		.tweet-meta {
+			display: block;
+			@include adjust-font-size-to( $twitter-body - 4px );
+			float: right;
+		}
+	}
 }
