@@ -72,6 +72,11 @@
 		@media screen and (max-width: $break-2col) {
 			max-width: $one-col-work-content-width;
 		}
+
+		#twitter-graph {
+			height: 200px;
+			margin-bottom: 50px;
+		}
 	}
 
 }
