@@ -1,5 +1,6 @@
 //= require lib/jquery-1.8.2
 //= require lib/handlebars-1.0.rc.1
+
 // Load Handlebars templates and json data
 var sectionTemplatePath = 'templates/section.handlebars';
 var dataPath = 'data/portfolio.json';
@@ -20,5 +21,5 @@ function onDataLoad ( section, data ) {
 }
 
 function onDataFail ( error ) {
-	$('.portfolio').html('<section id="error" class="work"> <article> <header> <h1>There was an error loading the data.</h1> </header> </article> </section> ');
+	$('.portfolio').html('<section id="error" class="work"> <article> <header> <h1>There was an error loading the portfolio data.</h1> </header> </article> </section> ');
 }
