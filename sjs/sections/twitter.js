@@ -43,6 +43,10 @@ function onChirpSuccess ( data ) {
 		},
 		xAxis: {
 			type: 'datetime',
+			tickPixelInterval: 50,
+			showFirstLabel: false,
+			startOnTick: true,
+			endOnTick: true,
 			labels: {
 				rotation: -45,
 				align: 'right'
