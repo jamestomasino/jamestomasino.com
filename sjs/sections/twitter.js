@@ -57,6 +57,9 @@
 			title: {
 				text: null
 			},
+			tooltip: {
+				enabled: false
+			},
 			xAxis: {
 				type: 'datetime',
 				tickPixelInterval: 50,
