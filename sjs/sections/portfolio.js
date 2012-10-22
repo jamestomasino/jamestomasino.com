@@ -1,5 +1,5 @@
-//= require lib/jquery-1.8.2
-//= require lib/handlebars-1.0.rc.1
+//= require ../lib/jquery-1.8.2
+//= require ../lib/handlebars-1.0.rc.1
 
 // Load Handlebars templates and json data
 var sectionTemplatePath = 'templates/section.handlebars';
