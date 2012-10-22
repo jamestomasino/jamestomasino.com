@@ -1,6 +1,7 @@
-//= require lib/jquery-1.8.2
-//= require lib/chirp
-//= require lib/highcharts
+//= require ../lib/jquery-1.8.2
+//= require ../lib/store
+//= require ../lib/chirp
+//= require ../lib/highcharts
 
 var twitterChart;
 var chirpTemplate = {
@@ -9,7 +10,21 @@ var chirpTemplate = {
 }
 
 function onChirpSuccess ( data ) {
+	store.set ('jamestomasino_chirp', data );
+	if (data != null) buildTweetContent ( data )
+}
+
+function onChirpFail ( error ) {
+	// Fallback on localstorage version if it exists
+	var data = store.get ( 'jamestomasino_chirp' );
+	if (data != null) buildTweetContent ( data )
+	else $('.twitter').hide();
+}
+
+function buildTweetContent ( data ) {
+
 	$('.twitter').show();
+
 	var tweetHistory = [];
 	$.each ( data, function(index, value) {
 		var d = new Date ( value.created_at );
@@ -23,10 +38,9 @@ function onChirpSuccess ( data ) {
 				break;
 			}
 		}
+
 		if (!match) tweetHistory.push ( {"x":rd, "y":1} );
 	});
-
-	console.log (tweetHistory);
 
 	twitterChart = new Highcharts.Chart({
 		chart: {
@@ -73,23 +87,21 @@ function onChirpSuccess ( data ) {
 			data: tweetHistory
 		}]
 	});
-}
 
-function onChirpFail ( error ) {
-	$('.twitter').hide();
+
 }
 
 Chirp({
 	user: 'mr_ino', //Twitter username
-	max: 5, //Maximum number of tweets to show
-	count: 100, //Total tweets to retrieve
-	retweets: true, //Show/Don't show retweets
-	replies: false,  //Show/Don't show replies
+	max: '5', //Maximum number of tweets to show
+	count: '100', //Total tweets to retrieve
+	retweets: 'true', //Show/Don't show retweets
+	replies: 'false',  //Show/Don't show replies
 	target: "twitter-content", //Target the id "twitter"
 	templates: chirpTemplate, // Use custom template
 	success: onChirpSuccess,
 	error: onChirpFail,
-	cacheExpire: 1000 * 60 * 60 //Number of milliseconds to cache tweets
+	cacheExpire: 1000 * 60 * 60 * 6 // 6 hours cache
 })
 
 
