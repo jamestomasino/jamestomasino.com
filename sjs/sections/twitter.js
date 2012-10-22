@@ -32,7 +32,6 @@ function buildTweetContent ( data ) {
 		var match = false;
 		var i = tweetHistory.length; while (i--) {
 			if (tweetHistory[i].x.getTime() == rd.getTime()) {
-				console.log ( 'match' );
 				tweetHistory[i].y++;
 				match = true;
 				break;
