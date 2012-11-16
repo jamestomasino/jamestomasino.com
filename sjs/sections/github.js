@@ -6,7 +6,7 @@
 	"use strict";
 
 	var githubTemplatePath = 'templates/github.handlebars';
-	var github_api_repos = 'https://api.github.com/users/jamestomasino/repos?type=owner&sort=pushed';
+	var github_api_repos = 'https://api.github.com/users/jamestomasino/repos?type=owner&sort=pushed&callback=?';
 		// name property = repo name for commits query
 	var github_api_commits = 'https://api.github.com/repos/jamestomasino/sass-boilerplate/commits';
 	var githubChart;
