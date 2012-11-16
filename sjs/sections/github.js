@@ -14,13 +14,15 @@
 	var githubChart;
 
 	// Only get new github data after a day. Preserve on requests.
-	var timeDelta = 10000000;
+	var timeDelta = 100000000;
 	var lastQueryDate = store.get ('jamestomasino_github_lastquery');
 	var d = new Date();
 	if (lastQueryDate) {
 		lastQueryDate = new Date (lastQueryDate);
 		timeDelta = Math.abs(d.getTime() - lastQueryDate.getTime());
 	}
+
+	if (console && console.log) console.log (timeDelta);
 
 	if (timeDelta > 86400000) {
 		$.when (
@@ -36,6 +38,8 @@
 	}
 
 	function onDataSuccess ( repoHandlebars, repoData ) {
+		if (console && console.log) console.log ('success');
+
 		repoTemplate = Handlebars.compile(repoHandlebars[0]);
 		repoJSON = repoData[0].data;
 		if (repoJSON && repoJSON.message && (repoJSON.message.search('API Rate Limit Exceeded' != -1))) {
@@ -48,6 +52,7 @@
 	}
 
 	function onDataFail ( error ) {
+		if (console && console.log) console.log ('fail');
 		repoJSON = store.get ('jamestomasino_github');
 		if (repoJSON && repoJSON.message && (repoJSON.message.search('API Rate Limit Exceeded' != -1))) {
 			store.clear(); // Something horrible happened. Lets reset.
