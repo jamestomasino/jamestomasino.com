@@ -120,3 +120,31 @@ em {
 		}
 	}
 }
+
+.github {
+
+	position: relative;
+
+	header {
+		@include adjust-font-size-to( $github-header );
+		line-height: 18px;
+		@include trailer();
+		text-align: right;
+	}
+
+	.repo {
+		clear: both;
+		position: relative;
+		display: block;
+		@include font-heading;
+		@include adjust-font-size-to( $github-body );
+		@include trailer(2);
+		text-align: justify;
+
+		.repo-desc {
+			@include font-body;
+			@include adjust-font-size-to( $github-body );
+			line-height: 22px;
+		}
+	}
+}

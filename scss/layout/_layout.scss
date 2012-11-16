@@ -80,5 +80,39 @@
 		}
 	}
 
+	.github {
+		display: block;
+		display: none;
+		position: relative;
+		margin: 40px auto;
+		padding: 25px;
+		text-align: left;
+		max-width: $full-work-content-width;
+
+		@media screen and (max-width: $break-3col) {
+			max-width: $two-col-work-content-width;
+		}
+
+		@media screen and (max-width: $break-2col) {
+			max-width: $one-col-work-content-width;
+		}
+
+
+		li {
+			list-style-type: none;
+		}
+
+		.repo-desc {
+			display: block;
+			margin-left: 35px;
+
+		}
+
+		#github-graph {
+			height: 200px;
+			margin-bottom: 50px;
+			display: none;
+		}
+	}
 }
 

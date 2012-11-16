@@ -19,10 +19,6 @@ $one-col-work-content-width: $work-block-width;
 $break-2col: $full-work-block-width * 2 + 17; // 17's handle inline-block spacing issues
 $break-3col: $full-work-block-width * 3 + 17;
 
-// Twitter Blocks
-
-
-
 /*  ----  Type  ----  */
 $base-font-size: 16px;
 $base-line-height: 18px;
@@ -35,6 +31,9 @@ $intro-header-small: 50px;
 
 $work-header: 18px;
 $work-body: 14px;
+
+$github-header: 26px;
+$github-body: 16px;
 
 $twitter-header: 26px;
 $twitter-body: 16px;
