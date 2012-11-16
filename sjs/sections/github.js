@@ -36,7 +36,6 @@
 	}
 
 	function onDataSuccess ( repoHandlebars, repoData ) {
-		console.log ('success');
 		repoTemplate = Handlebars.compile(repoHandlebars[0]);
 		repoJSON = repoData[0].data;
 		if (repoJSON && repoJSON.message && (repoJSON.message.search('API Rate Limit Exceeded' != -1))) {
@@ -49,7 +48,6 @@
 	}
 
 	function onDataFail ( error ) {
-		console.log ('fail');
 		repoJSON = store.get ('jamestomasino_github');
 		if (repoJSON && repoJSON.message && (repoJSON.message.search('API Rate Limit Exceeded' != -1))) {
 			store.clear(); // Something horrible happened. Lets reset.
