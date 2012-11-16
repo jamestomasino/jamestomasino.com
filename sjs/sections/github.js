@@ -1,6 +1,7 @@
 //= require ../lib/jquery-1.8.2
 //= require ../lib/store
 //= require ../lib/highcharts
+//= require ../lib/handlebars-1.0.rc.1
 
 (function(window, document, $, store, Highcharts, Handlebars) {
 	"use strict";
@@ -22,8 +23,6 @@
 		timeDelta = Math.abs(d.getTime() - lastQueryDate.getTime());
 	}
 
-	if (console && console.log) console.log (timeDelta);
-
 	if (timeDelta > 86400000) {
 		$.when (
 			$.ajax ( githubTemplatePath ),
@@ -38,7 +37,6 @@
 	}
 
 	function onDataSuccess ( repoHandlebars, repoData ) {
-		if (console && console.log) console.log ('success');
 
 		repoTemplate = Handlebars.compile(repoHandlebars[0]);
 		repoJSON = repoData[0].data;
@@ -52,7 +50,6 @@
 	}
 
 	function onDataFail ( error ) {
-		if (console && console.log) console.log ('fail');
 		repoJSON = store.get ('jamestomasino_github');
 		if (repoJSON && repoJSON.message && (repoJSON.message.search('API Rate Limit Exceeded' != -1))) {
 			store.clear(); // Something horrible happened. Lets reset.
