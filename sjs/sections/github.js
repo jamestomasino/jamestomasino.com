@@ -2,13 +2,35 @@
 //= require ../lib/store
 //= require ../lib/highcharts
 
-(function(window, document, $, store, Highcharts) {
+(function(window, document, $, store, Highcharts, Handlebars) {
 	"use strict";
 
-	var github_api_repos = 'https://api.github.com/users/jamestomasino/repos?type=owner&sort=updated';
+	var githubTemplatePath = 'templates/github.handlebars';
+	var github_api_repos = 'https://api.github.com/users/jamestomasino/repos?type=owner&sort=pushed';
 		// name property = repo name for commits query
 	var github_api_commits = 'https://api.github.com/repos/jamestomasino/sass-boilerplate/commits';
 	var githubChart;
+
+	$.when (
+		$.ajax ( githubTemplatePath ),
+		$.getJSON ( github_api_repos ),
+		$(document).ready()
+	).then( onRepos, onDataFail );
+
+	function onRepos ( repoHandlebars, repoData ) {
+		var repoHTML = repoHandlebars[0];
+		var repoTemplate = Handlebars.compile(repoHTML);
+
+		var repoJSON = repoData[0];
+
+		for ( var i = 0; i < Math.min(10, repoJSON.length); ++i ) {
+			var repo = $(repoTemplate(repoJSON[i]));
+			$('#github-content').append(repo);
+		}
+		$('.github').show();
+	}
+
+	function onDataFail ( error ) { }
 
 	/*
 	 *githubChart = new Highcharts.Chart({
@@ -61,4 +83,4 @@
 	 *});
 	 */
 
-}(window, document, jQuery, store, Highcharts ));
+}(window, document, jQuery, store, Highcharts, Handlebars ));
