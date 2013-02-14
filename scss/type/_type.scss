@@ -14,6 +14,13 @@ p {
 	text-align: justify;
 }
 
+blockquote {
+	@include font-body;
+	@include adjust-font-size-to( $body );
+	@include trailer();
+	text-align: center;
+}
+
 a {
 	color: $work;
 	text-decoration: none;
