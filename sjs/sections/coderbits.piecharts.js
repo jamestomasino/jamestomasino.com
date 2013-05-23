@@ -37,7 +37,7 @@
 		};
 
 		var createPieLabel = function (r, x, y, value) {
-			r.text(x, y, value).attr({ font: '20px Helvetica, Arial, sans-serif' }).attr({ fill: '#000' });
+			r.text(x, y, value).attr({ font: '20px "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif' }).attr({ fill: '#47a' });
 		};
 
 		var drawPieCharts = function (elementName, labels, keys, vals) {
@@ -50,6 +50,11 @@
 			var offset = (radius * 2) + margin;
 
 			var r = Raphael(elementName);
+			r.setViewBox(0,0,750,300);
+			var svg = document.querySelector('svg');
+			svg.removeAttribute('width');
+			svg.removeAttribute('height');
+
 			createPieLabel(r, start, labelTop, labels[0]);
 			createPieLabel(r, start + offset, labelTop, labels[1]);
 			createPieLabel(r, start + (offset * 2), labelTop, labels[2]);
@@ -77,7 +82,6 @@
 		}
 
 		var prefix_array = function (data, prefix) {
-			console.log(data);
 			for (var i = 0; i < data.length; i++)
 				data[i] = data[i] + prefix;
 			return data;
@@ -116,6 +120,10 @@
 			var username = element.getAttribute('data-coderbits-username'),
 				safeUsername = username.replace(/[(''){};!@@#%&*]/gi, '');
 			request('https://coderbits.com/' + safeUsername + '.json?callback=' + global);
+		}
+
+		window.refreshPieCharts = function () {
+			drawPieCharts(global, labels, keys, vals);
 		}
 	}
 
