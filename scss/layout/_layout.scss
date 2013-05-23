@@ -57,6 +57,33 @@
 		}
 	}
 
+	.coderbits {
+		display: block;
+		margin: 0 auto;
+		padding: 0;
+		max-width: $full-work-content-width + 50;
+		text-align: center;
+
+		@media screen and (max-width: $break-3col) {
+			max-width: $two-col-work-content-width + 50; // 50 to cover extra margin/padding/block stuff
+		}
+
+		@media screen and (max-width: $break-2col) {
+			max-width: $one-col-work-content-width + 40; // 40 to cover extra margin/padding/block stuff
+		}
+
+		img {
+			margin-top: 145px;
+		}
+
+		svg {
+			width: 100%;
+			height: 100%;
+		}
+
+
+	}
+
 	.twitter {
 		display: block;
 		display: none;
