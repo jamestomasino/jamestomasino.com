@@ -50,7 +50,7 @@
 			var offset = (radius * 2) + margin;
 
 			var r = Raphael(elementName);
-			r.setViewBox(0,0,750,300);
+			r.setViewBox(0,0,500,350);
 			var svg = document.querySelector('svg');
 			svg.removeAttribute('width');
 			svg.removeAttribute('height');
@@ -87,44 +87,46 @@
 			return data;
 		}
 
-		var global = 'coderbits', element = document.getElementById(global);
-		if (element) {
-			window[global] = function (data) {
-				var labels = [], vals = [], keys = [];
-
-				var top_languages = split_arrays(data.top_languages, 'name', 'count');
-				labels[0] = 'Languages';
-				keys[0] = prefix_array(top_languages[0], ' %%');
-				vals[0] = top_languages[1];
-
-				var top_environments = split_arrays(data.top_environments, 'name', 'count');
-				labels[1] = 'Environments';
-				keys[1] = prefix_array(top_environments[0], ' %%');
-				vals[1] = top_environments[1];
-
-				var top_frameworks = split_arrays(data.top_frameworks, 'name', 'count');
-				labels[2] = 'Frameworks';
-				keys[2] = prefix_array(top_frameworks[0], ' %%');
-				vals[2] = top_frameworks[1];
-
-				var top_tools = split_arrays(data.top_tools, 'name', 'count');
-				labels[3] = 'Tools';
-				keys[3] = prefix_array(top_tools[0], ' %%');
-				vals[3] = top_tools[1];
-
-				element.innerHTML = "";
-				drawPieCharts(global, labels, keys, vals);
-
-				delete window[global];
-			};
-			var username = element.getAttribute('data-coderbits-username'),
-				safeUsername = username.replace(/[(''){};!@@#%&*]/gi, '');
-			request('https://coderbits.com/' + safeUsername + '.json?callback=' + global);
-		}
-
 		window.refreshPieCharts = function () {
-			drawPieCharts(global, labels, keys, vals);
+			var global = 'coderbits';
+			var element = document.getElementById(global);
+
+			if (element) {
+				window[global] = function (data) {
+					var labels = [], vals = [], keys = [];
+
+					var top_languages = split_arrays(data.top_languages, 'name', 'count');
+					labels[0] = 'Languages';
+					keys[0] = prefix_array(top_languages[0], ' %%');
+					vals[0] = top_languages[1];
+
+					var top_environments = split_arrays(data.top_environments, 'name', 'count');
+					labels[1] = 'Environments';
+					keys[1] = prefix_array(top_environments[0], ' %%');
+					vals[1] = top_environments[1];
+
+					var top_frameworks = split_arrays(data.top_frameworks, 'name', 'count');
+					labels[2] = 'Frameworks';
+					keys[2] = prefix_array(top_frameworks[0], ' %%');
+					vals[2] = top_frameworks[1];
+
+					var top_tools = split_arrays(data.top_tools, 'name', 'count');
+					labels[3] = 'Tools';
+					keys[3] = prefix_array(top_tools[0], ' %%');
+					vals[3] = top_tools[1];
+
+					element.innerHTML = "";
+					drawPieCharts(global, labels, keys, vals);
+
+					delete window[global];
+				};
+				var username = element.getAttribute('data-coderbits-username'),
+					safeUsername = username.replace(/[(''){};!@@#%&*]/gi, '');
+				request('https://coderbits.com/' + safeUsername + '.json?callback=' + global);
+			}
 		}
+
+		refreshPieCharts();
 	}
 
 })(window, document);
