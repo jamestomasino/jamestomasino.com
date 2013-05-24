@@ -63,6 +63,7 @@
 		padding: 0;
 		max-width: $full-work-content-width + 50;
 		text-align: center;
+		height: 400px;
 
 		@media screen and (max-width: $break-3col) {
 			max-width: $two-col-work-content-width + 50; // 50 to cover extra margin/padding/block stuff
@@ -77,8 +78,8 @@
 		}
 
 		svg {
-			width: 100%;
-			height: 100%;
+			width: 100% !important;
+			height: 100% !important;
 		}
 
 
