@@ -30,7 +30,7 @@
 				url: github_api_repos,
 				dataType: 'jsonp'
 			}),
-			$(document).ready()
+			$(window).load()
 		).then( onDataSuccess, onDataFail );
 	} else {
 		onDataFail();
