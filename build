@@ -2,4 +2,5 @@
 # Compile Sass/Compass/Susy Compressed
 compass compile --output-style compressed --force
 sprocketize
-gzip -9 -c css/main.css > css/main.css.gz 
+gzip -9 -c css/main.css > css/main.css.gz
+rsync -av sjs/polyfill/ js/polyfill
