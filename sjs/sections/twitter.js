@@ -1,8 +1,3 @@
-//= require ../lib/jquery-1.8.2
-//= require ../lib/store
-//= require ../lib/chirp
-//= require ../lib/highcharts
-
 (function(window, document, $, store, Highcharts, Chirp) {
 	"use strict";
 
@@ -92,21 +87,21 @@
 				data: tweetHistory
 			}]
 		});
-
-
 	}
 
-	Chirp({
-		user: 'mr_ino', //Twitter username
-		max: '5', //Maximum number of tweets to show
-		count: '100', //Total tweets to retrieve
-		retweets: 'true', //Show/Don't show retweets
-		replies: 'false',  //Show/Don't show replies
-		target: "twitter-content", //Target the id "twitter"
-		templates: chirpTemplate, // Use custom template
-		success: onChirpSuccess,
-		error: onChirpFail,
-		cacheExpire: 1000 * 60 * 60 * 6 // 6 hours cache
-	})
+	$(window).load( function () {
+		Chirp({
+			user: 'mr_ino', //Twitter username
+			max: '5', //Maximum number of tweets to show
+			count: '100', //Total tweets to retrieve
+			retweets: 'true', //Show/Don't show retweets
+			replies: 'false',  //Show/Don't show replies
+			target: "twitter-content", //Target the id "twitter"
+			templates: chirpTemplate, // Use custom template
+			success: onChirpSuccess,
+			error: onChirpFail,
+			cacheExpire: 1000 * 60 * 60 * 6 // 6 hours cache
+		})
+	});
 
 }(window, document, jQuery, store, Highcharts, Chirp));
