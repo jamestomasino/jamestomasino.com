@@ -115,44 +115,48 @@
 		var radius = 75;
 		var start = 90;
 		var offset = (radius * 2) + margin;
+		var yspacer = 330;
 
 		if (self.paper) {
 			self.paper.clear();
 		} else {
 			self.el.html('');
 			self.paper = Raphael(self.el.attr('id'));
-			//self.paper.setViewBox(0,0,500,350);
-			//var svg = $('svg');
-			//svg.removeAttr('width');
-			//svg.removeAttr('height');
 		}
 
-		switch ( cols ) {
+		switch (cols) {
 			case 1:
+				start = 150;
+				break;
 			case 2:
+				start = 200;
+				break;
 			case 3:
 			case 4:
 			default:
-				for (var i = 0; i < cols; ++i ) {
-
-					self._createPieLabel(
-						self.paper,
-						start + ( offset * i ),
-						labelTop,
-						labels[i]
-					);
-
-					self._createPie(
-						self.paper,
-						start + ( offset * i ),
-						chartTop,
-						radius,
-						vals[i],
-						keys[i],
-						colors
-					);
-				}
+				start = 170;
 				break;
+		}
+		for (var i = 0; i < self.labels.length; ++i ) {
+
+			var yoffset = yspacer * ( Math.floor ( i / cols ) );
+
+			self._createPieLabel(
+				self.paper,
+				start + ( offset * (i % cols) ),
+				labelTop + yoffset,
+				labels[i]
+			);
+
+			self._createPie(
+				self.paper,
+				start + ( offset * (i % cols) ),
+				chartTop + yoffset,
+				radius,
+				vals[i],
+				keys[i],
+				colors
+			);
 		}
 	};
 
