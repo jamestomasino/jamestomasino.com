@@ -1,9 +1,3 @@
-//= require ../lib/jquery-1.8.2
-//= require ../lib/raphael-min
-//= require ../lib/g.raphael-min
-//= require ../lib/g.pie-min
-//= require ../lib/enquire
-
 (function(window, document, $, enquire) {
 	"use strict";
 
@@ -38,23 +32,27 @@
 					self.vals[i] = topvals[1].slice(0);
 				}
 
-				enquire.register("screen and (max-width:597px)", {
-					match : function() {
-						self.buildCharts(1);
-					}
-				});
+				if (window.matchMedia) {
+					enquire.register("screen and (max-width:597px)", {
+						match : function() {
+							self.buildCharts(1);
+						}
+					});
 
-				enquire.register("screen and (min-width:598px) and (max-width:887px)", {
-					match : function() {
-						self.buildCharts(2);
-					}
-				});
+					enquire.register("screen and (min-width:598px) and (max-width:887px)", {
+						match : function() {
+							self.buildCharts(2);
+						}
+					});
 
-				enquire.register("screen and (min-width:888px)", {
-					match : function() {
-						self.buildCharts(4);
-					}
-				});
+					enquire.register("screen and (min-width:888px)", {
+						match : function() {
+							self.buildCharts(4);
+						}
+					});
+				} else {
+					self.buildCharts(4);
+				}
 
 			},
 

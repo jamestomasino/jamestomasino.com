@@ -1,6 +1,3 @@
-//= require ../lib/jquery-1.8.2
-//= require ../lib/handlebars-1.0.rc.1
-
 (function(window, document, $, Handlebars) {
 	"use strict";
 

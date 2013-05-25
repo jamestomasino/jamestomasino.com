@@ -1,8 +1,3 @@
-//= require ../lib/jquery-1.8.2
-//= require ../lib/store
-//= require ../lib/chirp
-//= require ../lib/highcharts
-
 (function(window, document, $, store, Highcharts, Chirp) {
 	"use strict";
 
