@@ -11,7 +11,7 @@
 	$.when (
 		$.ajax ( sectionTemplatePath ),
 		$.getJSON ( dataPath ),
-		$(document).ready()
+		$(window).load()
 	).then( onDataLoad, onDataFail );
 
 	function onDataLoad ( section, data ) {
