@@ -23,7 +23,7 @@
 		{
 			"id": "rogersplayer",
 			"url": "http://jamestomasino.com/archive/rogers/",
-			"desc": "<p>This project was a Hulu-style video on demand website for Rogers, the Canadian TelCom. I primarily built the Flash video player, but also worked on other areas of the site, including the homepage A-spot.</p><p>The <a href='http://www.rogersondemand.com'>live website</a> is geo-restricted to Canada.",
+			"desc": "<p>This project was a Hulu-style video on demand website for Rogers, the Canadian TelCom. I primarily built the Flash video player, but also worked on other areas of the site, including the homepage A-spot.</p><p>The <a href='http://www.rogersondemand.com'>live website</a> is geo-restricted to Canada.</p>",
 			"title": "Rogers On Demand"
 		},
 
