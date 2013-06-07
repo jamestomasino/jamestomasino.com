@@ -3,7 +3,10 @@
 compass compile --output-style compressed --force
 sprocketize
 rsync -av sjs/polyfill/ js/polyfill
-gzip -9 -c css/main.css > css/main.css.gz
-gzip -9 -c js/polyfill/matchMedia.addListener.js > js/polyfill/matchMedia.addListener.js.gz
-gzip -9 -c js/polyfill/matchMedia.js > js/polyfill/matchMedia.js.gz
-gzip -9 -c js/polyfill/raphael.vml.js > js/polyfill/raphael.vml.js.gz
+function gzipkeep {
+  if [ -f "$1" ] ; then
+    gzip -9 -c -- "$1" > "$1.gz"
+  fi
+}
+gzipkeep js/polyfill/*
+gzipkeep css/*
