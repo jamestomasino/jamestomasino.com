@@ -1,8 +1,3 @@
-//= require ../lib/jquery-1.8.2
-//= require ../lib/store
-//= require ../lib/highcharts
-//= require ../lib/handlebars-1.0.rc.1
-
 (function(window, document, $, store, Highcharts, Handlebars) {
 	"use strict";
 
@@ -30,7 +25,7 @@
 				url: github_api_repos,
 				dataType: 'jsonp'
 			}),
-			$(document).ready()
+			$(window).load()
 		).then( onDataSuccess, onDataFail );
 	} else {
 		onDataFail();
@@ -68,7 +63,7 @@
 		if (repoJSON && repoTemplate) {
 			for ( var i = 0; i < Math.min(10, repoJSON.length); ++i ) {
 				var repo = $(repoTemplate(repoJSON[i]));
-				$('#github-content').append(repo);
+				$('#github-content ul').append(repo);
 				requests.push($.ajax({
 					type: 'GET',
 					url: 'https://api.github.com/repos/jamestomasino/' + repoJSON[i].name + '/commits',
