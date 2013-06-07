@@ -72,6 +72,14 @@ em {
 		}
 	}
 }
+.coderbits {
+
+	.pie_label {
+		@include font-heading;
+		@include adjust-font-size-to( $twitter-header );
+	}
+}
+
 
 .twitter {
 

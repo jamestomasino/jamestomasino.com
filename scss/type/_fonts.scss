@@ -1,5 +1,21 @@
-@include font-face("Raleway", font-files("../fonts/raleway.woff", "../fonts/raleway.otf", "../fonts/raleway.ttf", "../fonts/raleway.svg"));
-@include font-face("Sail", font-files("../fonts/sail.woff", "../fonts/sail.otf", "../fonts/sail.ttf", "../fonts/sail.svg"));
+@include font-face("Raleway",
+  font-files(
+    "../fonts/raleway.woff",
+    "../fonts/raleway.otf",
+    "../fonts/raleway.ttf",
+    "../fonts/raleway.svg"
+    ),
+    "../fonts/raleway.eot"
+  );
+@include font-face( "Sail",
+    font-files(
+      "../fonts/sail.woff",
+      "../fonts/sail.otf",
+      "../fonts/sail.ttf",
+      "../fonts/sail.svg"
+    ),
+    "../fonts/sail.eot"
+  );
 
 @mixin font-heading () {
 	font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
