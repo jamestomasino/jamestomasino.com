@@ -4,12 +4,11 @@ compass compile --output-style compressed --force
 sprocketize
 rsync -av sjs/polyfill/ js/polyfill
 function gzipkeep {
-for file in $1
-do
-	if [ -f "$1" ] ; then
-		gzip -9 -c -- "$file" > "$file.gz"
-	fi
-done
+	for file in "$1"/* ; do
+		if [[ "$file" != *gz ]]; then
+			gzip -9 -c -- "$file" > "$file.gz"
+		fi
+	done
 }
-gzipkeep js/polyfill/*
-gzipkeep css/*
+gzipkeep js/polyfill
+gzipkeep css
