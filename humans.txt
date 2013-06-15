@@ -1,0 +1,15 @@
+/* TEAM */
+	Name: James Tomasino
+	Contact: james (at) tomasino (dot) org
+	Twitter: @mr_ino
+	From: Pennsylvania, USA
+
+/* THANKS */
+	Site Design Inspiration
+	Twitter: @brandur
+	Website: brandur.org
+
+/* SITE */
+	Language: English
+	Doctype: HTML5
+	IDE: vim
