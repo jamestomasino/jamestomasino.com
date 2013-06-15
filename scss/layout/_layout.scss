@@ -11,7 +11,7 @@
 	.intro {
 		display: block;
 		position: relative;
-		margin: 40px auto;
+		margin: 40px auto 0 auto;
 		padding: 25px;
 		max-width: $full-work-content-width;
 
@@ -21,39 +21,6 @@
 
 		@media screen and (max-width: $break-2col) {
 			max-width: $one-col-work-content-width;
-		}
-	}
-
-	.portfolio {
-		display: block;
-		position: relative;
-		margin: 0 auto;
-		padding: 0;
-		max-width: $full-work-content-width + 50;
-		text-align: left;
-
-		@media screen and (max-width: $break-3col) {
-			max-width: $two-col-work-content-width + 50; // 50 to cover extra margin/padding/block stuff
-		}
-
-		@media screen and (max-width: $break-2col) {
-			max-width: $one-col-work-content-width + 40; // 40 to cover extra margin/padding/block stuff
-		}
-
-		.work {
-			position: relative;
-			@include inline-block;
-			@include box-sizing(content-box);
-			border-collapse: collapse;
-			width: $work-block-width;
-			max-height: $work-block-height;
-			vertical-align: top;
-			padding: $work-block-padding;
-			margin: $work-block-margin;
-
-			p {
-				@include trailer;
-			}
 		}
 	}
 
@@ -83,8 +50,6 @@
 			width: 100% !important;
 			height: 100% !important;
 		}
-
-
 	}
 
 	.twitter {
@@ -114,28 +79,40 @@
 		display: block;
 		display: none;
 		position: relative;
-		margin: 40px auto;
+		margin: 0 auto;
 		padding: 25px;
 		text-align: left;
-		max-width: $full-work-content-width;
+
+		max-width: $full-work-content-width + 50;
+		text-align: left;
 
 		@media screen and (max-width: $break-3col) {
-			max-width: $two-col-work-content-width;
+			max-width: $two-col-work-content-width + 50; // 50 to cover extra margin/padding/block stuff
 		}
 
 		@media screen and (max-width: $break-2col) {
-			max-width: $one-col-work-content-width;
+			max-width: $one-col-work-content-width + 40; // 40 to cover extra margin/padding/block stuff
 		}
 
+		.repo {
+			position: relative;
+			@include inline-block;
+			@include box-sizing(content-box);
+			border-collapse: collapse;
+			width: $work-block-width;
+			max-height: $work-block-height;
+			vertical-align: top;
+			padding: $work-block-padding;
+			margin: $work-block-margin;
 
-		li {
-			list-style-type: none;
+			p {
+				@include trailer;
+			}
 		}
 
 		.repo-desc {
 			display: block;
-			margin-left: 35px;
-
+			text-align: left;
 		}
 
 		#github-graph {

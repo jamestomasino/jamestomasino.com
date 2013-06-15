@@ -61,9 +61,9 @@
 
 		var requests = [];
 		if (repoJSON && repoTemplate) {
-			for ( var i = 0; i < Math.min(10, repoJSON.length); ++i ) {
+			for ( var i = 0; i < Math.min(12, repoJSON.length); ++i ) {
 				var repo = $(repoTemplate(repoJSON[i]));
-				$('#github-content ul').append(repo);
+				$('#github-content').append(repo);
 				requests.push($.ajax({
 					type: 'GET',
 					url: 'https://api.github.com/repos/jamestomasino/' + repoJSON[i].name + '/commits',
