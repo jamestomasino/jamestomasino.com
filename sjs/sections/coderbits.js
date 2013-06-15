@@ -3,9 +3,10 @@
 
 	var graphTypes = ['Languages', 'Environments', 'Skills', 'Traits'];
 
-	var Coderbits = function ( id ) {
+	var Coderbits = function ( id, parentel ) {
 		var self = this;
 		self.el = $(id);
+		self.parentel = $(parentel);
 
 		if ( self.el.length ) {
 			var username = self.el.attr('data-coderbits-username');
@@ -58,7 +59,7 @@
 
 			function () {
 				self.el.html(''); // clear the area on fail
-				self.el.css('display', 'none'); // and hide it
+				self.parentel.hide(); // and hide it
 			});
 		}
 	}
