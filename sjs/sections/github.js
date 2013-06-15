@@ -4,6 +4,7 @@
 	// Paths
 	var githubTemplatePath = 'templates/github.handlebars';
 	var github_api_repos = 'https://api.github.com/users/jamestomasino/repos?type=owner&sort=pushed';
+	var github_api_activity = 'https://github.com/users/jamestomasino/contributions_calendar_data';
 	var github_api_commits_head = 'https://api.github.com/repos/jamestomasino/';
 	var githubChart;
 
@@ -12,12 +13,17 @@
 	var lastQueryDate = store.get ('jamestomasino_github_lastquery');
 	var d = new Date();
 
-	var Github = function ( id, parentid ) {
+	var Github = function ( contentid, chartid, parentid ) {
 		this.repoJSON
 		this.repoTemplate;
 
-		this.el = $(id);
+		this.contentel = $(contentid);
+		this.chartel = $(chartid);
 		this.parentel = $(parentid);
+
+		this.contentID = contentid;
+		this.chartID = chartid;
+		this.parentID = parentid;
 
 		if (lastQueryDate) {
 			lastQueryDate = new Date (lastQueryDate);
@@ -32,20 +38,20 @@
 					dataType: 'jsonp'
 				}),
 				$(window).load()
-			).then( $.proxy(this._onDataSuccess, this), $.proxy(this._onDataFail, this ));
+			).then( $.proxy(this._onGithubRepoDataSuccess, this), $.proxy(this._onGithubRepoDataFail, this ));
 		} else {
-			this._onDataFail();
+			this._onGithubRepoDataFail();
 		}
 	}
 
 	var p = Github.prototype;
 
-	p._onDataSuccess = function ( repoHandlebars, repoData ) {
+	p._onGithubRepoDataSuccess = function ( repoHandlebars, repoData ) {
 
 		this.repoTemplate = Handlebars.compile(repoHandlebars[0]);
 		this.repoJSON = repoData[0].data;
 		if (this.repoJSON && this.repoJSON.message && (this.repoJSON.message.search('API Rate Limit Exceeded' != -1))) {
-			this._onDataFail();
+			this._onGithubRepoDataFail();
 		} else {
 			store.set ('jamestomasino_github_lastquery', d);
 			store.set ('jamestomasino_github', this.repoJSON );
@@ -53,7 +59,7 @@
 		}
 	}
 
-	p._onDataFail = function ( error ) {
+	p._onGithubRepoDataFail = function ( error ) {
 		this.repoJSON = store.get ('jamestomasino_github');
 		if (this.repoJSON && this.repoJSON.message && (this.repoJSON.message.search('API Rate Limit Exceeded' != -1))) {
 			store.clear(); // Something horrible happened. Lets reset.
@@ -62,6 +68,28 @@
 			this.parentel.hide();
 		}
 		$.ajax (githubTemplatePath).then( $.proxy(this._storeHandlebars, this) );
+	}
+
+	p._onGithubActivityDataSuccess = function ( activityData ) {
+		this.activityData = JSON.parse(activityData);
+		for (var i = 0; i < this.activityData.length; ++i) {
+			var activity = this.activityData[i];
+			activity[0] = new Date(activity[0]).getTime() / 1000;
+		}
+		console.log (this.activityData);
+		this.cal = new CalHeatMap();
+		this.cal.init({
+			data: this.activityData,
+			dataType: 'json',
+			id: this.chartID,
+			domain: 'month',
+			subDomain: 'day'
+		});
+	}
+
+	p._onGithubActivityDataFail = function ( error, textStatus, errorThrown ) {
+		console.log ('error:', textStatus, errorThrown);
+		this.chartel.hide();
 	}
 
 	p._storeHandlebars = function ( data ) {
@@ -73,9 +101,18 @@
 		if (this.repoJSON && this.repoTemplate) {
 			for ( var i = 0; i < Math.min(12, this.repoJSON.length); ++i ) {
 				var repo = $(this.repoTemplate(this.repoJSON[i]));
-				this.el.append(repo);
+				this.contentel.append(repo);
 			}
 		}
+
+		// Now that the basics are loaded, go for the heatmap
+		console.log ('services/json.php?u=' + github_api_activity);
+		$.when (
+			$.ajax ( { type: 'GET',
+				url: 'services/json.php?u=' + github_api_activity,
+				dataType: 'text'
+			})
+		).then( $.proxy(this._onGithubActivityDataSuccess, this), $.proxy(this._onGithubActivityDataFail, this));
 	}
 
 	window.Github = Github;
