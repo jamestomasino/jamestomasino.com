@@ -91,10 +91,9 @@
 
 	.github {
 		display: block;
-		display: none;
 		position: relative;
 		margin: 0 auto;
-		padding: 25px;
+		padding: 0;
 		text-align: left;
 
 		max-width: $full-work-content-width + 50;
@@ -106,6 +105,22 @@
 
 		@media screen and (max-width: $break-2col) {
 			max-width: $one-col-work-content-width + 40; // 40 to cover extra margin/padding/block stuff
+		}
+
+		.intro {
+			display: block;
+			position: relative;
+			margin: 40px auto 0 auto;
+			padding: 25px;
+			max-width: $full-work-content-width;
+
+			@media screen and (max-width: $break-3col) {
+				max-width: $two-col-work-content-width;
+			}
+
+			@media screen and (max-width: $break-2col) {
+				max-width: $one-col-work-content-width;
+			}
 		}
 
 		.repo {
