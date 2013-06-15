@@ -1,8 +1,6 @@
 (function(window, document, $, store, Highcharts, Handlebars) {
 	"use strict";
 
-	var repoJSON, repoTemplate;
-
 	// Paths
 	var githubTemplatePath = 'templates/github.handlebars';
 	var github_api_repos = 'https://api.github.com/users/jamestomasino/repos?type=owner&sort=pushed';
@@ -13,127 +11,73 @@
 	var timeDelta = 100000000;
 	var lastQueryDate = store.get ('jamestomasino_github_lastquery');
 	var d = new Date();
-	if (lastQueryDate) {
-		lastQueryDate = new Date (lastQueryDate);
-		timeDelta = Math.abs(d.getTime() - lastQueryDate.getTime());
+
+	var Github = function ( id, parentid ) {
+		this.repoJSON
+		this.repoTemplate;
+
+		this.el = $(id);
+		this.parentel = $(parentid);
+
+		if (lastQueryDate) {
+			lastQueryDate = new Date (lastQueryDate);
+			timeDelta = Math.abs(d.getTime() - lastQueryDate.getTime());
+		}
+
+		if (timeDelta > 86400000) {
+			$.when (
+				$.ajax ( githubTemplatePath ),
+				$.ajax ( { type: 'GET',
+					url: github_api_repos,
+					dataType: 'jsonp'
+				}),
+				$(window).load()
+			).then( $.proxy(this._onDataSuccess, this), $.proxy(this._onDataFail, this ));
+		} else {
+			this._onDataFail();
+		}
 	}
 
-	if (timeDelta > 86400000) {
-		$.when (
-			$.ajax ( githubTemplatePath ),
-			$.ajax ( { type: 'GET',
-				url: github_api_repos,
-				dataType: 'jsonp'
-			}),
-			$(window).load()
-		).then( onDataSuccess, onDataFail );
-	} else {
-		onDataFail();
-	}
+	var p = Github.prototype;
 
-	function onDataSuccess ( repoHandlebars, repoData ) {
+	p._onDataSuccess = function ( repoHandlebars, repoData ) {
 
-		repoTemplate = Handlebars.compile(repoHandlebars[0]);
-		repoJSON = repoData[0].data;
-		if (repoJSON && repoJSON.message && (repoJSON.message.search('API Rate Limit Exceeded' != -1))) {
-			onDataFail();
+		this.repoTemplate = Handlebars.compile(repoHandlebars[0]);
+		this.repoJSON = repoData[0].data;
+		if (this.repoJSON && this.repoJSON.message && (this.repoJSON.message.search('API Rate Limit Exceeded' != -1))) {
+			this._onDataFail();
 		} else {
 			store.set ('jamestomasino_github_lastquery', d);
-			store.set ('jamestomasino_github', repoJSON );
-			processJSON ();
+			store.set ('jamestomasino_github', this.repoJSON );
+			this._processJSON ();
 		}
 	}
 
-	function onDataFail ( error ) {
-		repoJSON = store.get ('jamestomasino_github');
-		if (repoJSON && repoJSON.message && (repoJSON.message.search('API Rate Limit Exceeded' != -1))) {
+	p._onDataFail = function ( error ) {
+		this.repoJSON = store.get ('jamestomasino_github');
+		if (this.repoJSON && this.repoJSON.message && (this.repoJSON.message.search('API Rate Limit Exceeded' != -1))) {
 			store.clear(); // Something horrible happened. Lets reset.
+			this.parentel.hide();
+		} else if (this.repoJSON == undefined ){
+			this.parentel.hide();
 		}
-		$.ajax ( githubTemplatePath).then( storeHandlebars );
+		$.ajax (githubTemplatePath).then( $.proxy(this._storeHandlebars, this) );
 	}
 
-	function storeHandlebars ( data ) {
-		repoTemplate = Handlebars.compile(data);
-		processJSON ();
+	p._storeHandlebars = function ( data ) {
+		this.repoTemplate = Handlebars.compile(data);
+		this._processJSON ();
 	}
 
-	function processJSON () {
-
-		var requests = [];
-		if (repoJSON && repoTemplate) {
-			for ( var i = 0; i < Math.min(12, repoJSON.length); ++i ) {
-				var repo = $(repoTemplate(repoJSON[i]));
-				$('#github-content').append(repo);
-				requests.push($.ajax({
-					type: 'GET',
-					url: 'https://api.github.com/repos/jamestomasino/' + repoJSON[i].name + '/commits',
-					dataType: 'jsonp'
-				}));
+	p._processJSON = function () {
+		if (this.repoJSON && this.repoTemplate) {
+			for ( var i = 0; i < Math.min(12, this.repoJSON.length); ++i ) {
+				var repo = $(this.repoTemplate(this.repoJSON[i]));
+				this.el.append(repo);
 			}
-			$('.github').show();
 		}
-/*
-		$.when.apply(requests).done(function() {
-			for (i in requests) {
-				requests[i].success(function(data) {
-					var commits = data.data;
-					console.log (commits);
-				});
-			}
-		});
-*/
 	}
 
-	function drawChart () {
-		githubChart = new Highcharts.Chart({
-			chart: {
-				renderTo: 'github-graph',
-				type: 'spline',
-				height: 200
-			},
-			credits : {
-				enabled : false
-			},
-			exporting: { enabled: false },
-			title: {
-				text: null
-			},
-			tooltip: {
-				enabled: false
-			},
-			xAxis: {
-				type: 'datetime',
-				tickPixelInterval: 50,
-				showFirstLabel: false,
-				startOnTick: true,
-				endOnTick: true,
-				labels: {
-					rotation: -45,
-					align: 'right'
-				}
-			},
-			yAxis: {
-				type: 'number',
-				gridLineWidth: 0,
-				lineWidth: 0,
-				minorGridLineWidth: 0,
-				lineColor: 'transparent',
-				labels: {
-					enabled: false
-				},
-				minorTickLength: 0,
-				tickLength: 0,
-				title: {
-					text: null
-				}
-			},
-			series:[{
-				showInLegend: false,
-				name: 'Tweet History',
-				data: tweetHistory
-			}]
-		});
-
-	}
+	window.Github = Github;
 
 }(window, document, jQuery, store, Highcharts, Handlebars ));
