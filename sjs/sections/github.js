@@ -1,4 +1,4 @@
-(function(window, document, $, store, Highcharts, Handlebars) {
+(function(window, document, $, store, Highcharts, Handlebars, CalHeatMap) {
 	"use strict";
 
 	// Paths
@@ -70,20 +70,30 @@
 		$.ajax (githubTemplatePath).then( $.proxy(this._storeHandlebars, this) );
 	}
 
+
 	p._onGithubActivityDataSuccess = function ( activityData ) {
 		this.activityData = JSON.parse(activityData);
+
+		var today = new Date();
+		var start = new Date(today.getFullYear() - 1, today.getMonth() + 1);
+
+		var data = {};
 		for (var i = 0; i < this.activityData.length; ++i) {
 			var activity = this.activityData[i];
-			activity[0] = new Date(activity[0]).getTime() / 1000;
+			data[ String(new Date(activity[0]).getTime() / 1000) ] = activity[1];
 		}
-		console.log (this.activityData);
+		console.log (data);
+
 		this.cal = new CalHeatMap();
 		this.cal.init({
-			data: this.activityData,
+			data: data,
+			start: start,
+			range: 12,
 			dataType: 'json',
-			id: this.chartID,
+			id: 'github_graph',
 			domain: 'month',
-			subDomain: 'day'
+			subDomain: 'day',
+			scale: [3,6,9,12,15]
 		});
 	}
 
@@ -117,4 +127,4 @@
 
 	window.Github = Github;
 
-}(window, document, jQuery, store, Highcharts, Handlebars ));
+}(window, document, jQuery, store, Highcharts, Handlebars, CalHeatMap ));
