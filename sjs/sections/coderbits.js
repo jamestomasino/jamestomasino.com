@@ -3,9 +3,10 @@
 
 	var graphTypes = ['Languages', 'Environments', 'Skills', 'Traits'];
 
-	var Coderbits = function ( id ) {
+	var Coderbits = function ( id, parentel ) {
 		var self = this;
 		self.el = $(id);
+		self.parentel = $(parentel);
 
 		if ( self.el.length ) {
 			var username = self.el.attr('data-coderbits-username');
@@ -58,11 +59,9 @@
 
 			function () {
 				self.el.html(''); // clear the area on fail
-				self.el.css('display', 'none'); // and hide it
+				self.parentel.hide(); // and hide it
 			});
 		}
-
-
 	}
 
 	var p = Coderbits.prototype;
@@ -122,17 +121,20 @@
 			self.paper = Raphael(self.el.attr('id'));
 		}
 
+		self.paper.canvas.removeAttribute('height');
+		self.paper.canvas.removeAttribute('width');
+
 		switch (cols) {
 			case 1:
-				start = 150;
+				start = 127;
 				break;
 			case 2:
-				start = 200;
+				start = 170;
 				break;
 			case 3:
 			case 4:
 			default:
-				start = 170;
+				start = 120;
 				break;
 		}
 		for (var i = 0; i < self.labels.length; ++i ) {
