@@ -61,8 +61,6 @@
 				self.el.css('display', 'none'); // and hide it
 			});
 		}
-
-
 	}
 
 	var p = Coderbits.prototype;
@@ -122,17 +120,20 @@
 			self.paper = Raphael(self.el.attr('id'));
 		}
 
+		self.paper.canvas.removeAttribute('height');
+		self.paper.canvas.removeAttribute('width');
+
 		switch (cols) {
 			case 1:
-				start = 150;
+				start = 127;
 				break;
 			case 2:
-				start = 200;
+				start = 170;
 				break;
 			case 3:
 			case 4:
 			default:
-				start = 170;
+				start = 120;
 				break;
 		}
 		for (var i = 0; i < self.labels.length; ++i ) {

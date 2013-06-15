@@ -8,7 +8,7 @@
 	text-align: center;
 	white-space-collapsing:discard;
 
-	.intro {
+	.overview {
 		display: block;
 		position: relative;
 		margin: 40px auto 0 auto;
@@ -28,22 +28,31 @@
 		display: block;
 		margin: 0 auto;
 		padding: 0;
-		max-width: $full-work-content-width + 50;
+		max-width: $full-work-content-width;
 		text-align: center;
-		height: 400px;
 
 		@media screen and (max-width: $break-3col) {
-			height: 680px;
-			max-width: $two-col-work-content-width + 50; // 50 to cover extra margin/padding/block stuff
+			max-width: $two-col-work-content-width; // 50 to cover extra margin/padding/block stuff
 		}
 
 		@media screen and (max-width: $break-2col) {
-			height: 1350px;
-			max-width: $one-col-work-content-width + 40; // 40 to cover extra margin/padding/block stuff
+			max-width: $one-col-work-content-width; // 40 to cover extra margin/padding/block stuff
 		}
 
 		img {
 			margin-top: 145px;
+		}
+
+		.chart{
+			height: 400px;
+
+			@media screen and (max-width: $break-3col) {
+				height: 680px;
+			}
+
+			@media screen and (max-width: $break-2col) {
+				height: 1350px;
+			}
 		}
 
 		svg {
@@ -54,12 +63,21 @@
 
 	.twitter {
 		display: block;
-		display: none;
 		position: relative;
 		margin: 40px auto;
 		padding: 25px;
-		text-align: left;
+		text-align: center;
 		max-width: $full-work-content-width;
+
+		.content {
+			text-align: left;
+		}
+
+		img {
+			margin-top: 145px;
+			width: 40px;
+			margin: 0 auto;
+		}
 
 		@media screen and (max-width: $break-3col) {
 			max-width: $two-col-work-content-width;
@@ -69,10 +87,6 @@
 			max-width: $one-col-work-content-width;
 		}
 
-		#twitter-graph {
-			height: 200px;
-			margin-bottom: 50px;
-		}
 	}
 
 	.github {

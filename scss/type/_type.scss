@@ -35,7 +35,7 @@ em {
 	font-style: italic;
 }
 
-.intro {
+.overview {
 
 	header {
 		@include adjust-font-size-to( $intro-header-large );
@@ -47,36 +47,24 @@ em {
 	}
 }
 
-.portfolio {
-	.work {
-		header {
-			@include adjust-font-size-to( $work-header );
-			line-height: 18px;
-			@include trailer();
-			text-align: right;
-		}
-
-		p {
-			@include adjust-font-size-to( $work-body );
-			text-align: justify;
-		}
-	}
-
-	#resume {
-		a {
-			color: $resume;
-
-			&:hover {
-				color: $resume-hover;
-			}
-		}
-	}
-}
 .coderbits {
+	position: relative;
+
+	header {
+		@include adjust-font-size-to( $coderbits-header );
+		line-height: 18px;
+		@include trailer();
+		text-align: center;
+	}
+
+	p {
+		@include adjust-font-size-to( $coderbits-body );
+		text-align: justify;
+	}
 
 	.pie_label {
 		@include font-heading;
-		@include adjust-font-size-to( $twitter-header );
+		@include adjust-font-size-to( $coderbits-header );
 	}
 }
 
@@ -89,8 +77,9 @@ em {
 		@include adjust-font-size-to( $twitter-header );
 		line-height: 18px;
 		@include trailer();
-		text-align: right;
+		text-align: center;
 	}
+
 	.tweet {
 		clear: both;
 		position: relative;
@@ -144,7 +133,7 @@ em {
 		@include adjust-font-size-to( $github-header );
 		line-height: 18px;
 		@include trailer();
-		text-align: right;
+		text-align: center;
 	}
 
 	.repo {

@@ -1,51 +1,55 @@
-(function(window, document) {
+(function(window, document, $) {
 	"use strict";
 
-	var Twitter = function ( elID, twitterID ) {
-		this.elID = elID.replace(/#/,'');
+	var Twitter = function ( elID, twitterID, parentEl ) {
+		this.el = $(elID);
+		this.parentEl = $(parentEl);
 		this.twitterID = twitterID;
 
-		this._twitterFetcher.fetch(this.twitterID, function(tweets){
-			console.log ('tweet!');
-			var x = tweets.length;
-			var n = 0;
-			var element = document.getElementById(this.elID);
-			var html = '<ul>';
-			while(n < x) {
-				if (tweets[n].innerText) {
-					html += '<li>' + tweets[n].innerText + '</li>';
-				} else {
-					html += '<li>' + tweets[n].textContent + '</li>';
-				}
-				n++;
-			}
-			html += '</ul>';
-			element.innerHTML = html;
-		});
+		var twitter_feed = "http://cdn.syndication.twimg.com/widgets/timelines/" + this.twitterID + "?&lang=en&suppress_response_codes=true&rnd=" + Math.random();
+		$.when (
+			$.ajax ( { type: 'GET',
+				url: twitter_feed,
+				dataType: 'jsonp'
+			})
+		).then( $.proxy(this._onDataSuccess, this), $.proxy(this._onDataFail,this) );
 
+		function onDataSuccess (tweets) {
+		};
+
+		function onDataFail (error) {
+
+		}
 	}
 
 	var p = Twitter.prototype;
 
-	p._twitterFetcher = function () {
-	    var d = null;
-	    return {
-	        fetch: function (a, b) {
-	            d = b;
-	            var c = document.createElement("script");
-	            c.type = "text/javascript";
-	            c.src = "http://cdn.syndication.twimg.com/widgets/timelines/" + a + "?&lang=en&callback=_twitterFetcher.callback&suppress_response_codes=true&rnd=" + Math.random();
-	            document.getElementsByTagName("head")[0].appendChild(c)
-	        },
-	        callback: function (a) {
-	            var b = document.createElement("div");
-	            b.innerHTML = a.body;
-	            a = b.getElementsByClassName("e-entry-title");
-	            d(a)
-	        }
-	    }
-	}();
+	p._onDataSuccess = function ( tweets ) {
+		var searchContainer = document.createElement("div");
+		searchContainer.innerHTML = tweets.body;
+
+		var entryTitles = searchContainer.getElementsByClassName("e-entry-title");
+		var entryTimes = searchContainer.getElementsByClassName("dt-updated");
+
+		this.parentEl.find('.loading').remove();
+
+		for (var i = 0; i < entryTitles.length; ++i ) {
+			var tweetBody = $(entryTitles[i]);
+			var tweetMeta = $(entryTimes[i]);
+			tweetBody.removeClass().addClass('tweet-body');
+			tweetMeta.removeClass().addClass('tweet-meta');
+			var tweet = $('<article class="tweet"></article>');
+			tweet.append('<div class="tweet-prefix">&ldquo;</div>');
+			tweet.append(tweetBody);
+			tweet.append(tweetMeta);
+			this.el.append(tweet);
+		}
+	}
+
+	p._onDataFail = function ( error ) {
+		this.parentEl.hide();
+	}
 
 	window.Twitter = Twitter;
 
-})(window, document);;
+})(window, document, jQuery);
