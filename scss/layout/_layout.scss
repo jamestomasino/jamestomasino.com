@@ -28,6 +28,11 @@
 			text-indent: -9999px;
 		}
 
+		.icon_linkedin {
+			@include     bg("icon_linkedin.jpg");
+			@include retina("icon_linkedin@2x.jpg", 50, 50 );
+		}
+
 		.icon_coderbits {
 			@include     bg("icon_coderbits.jpg");
 			@include retina("icon_coderbits@2x.jpg", 50, 50 );
@@ -75,7 +80,6 @@
 		text-align: center;
 
 		max-width: $full-work-content-width + 50;
-		text-align: left;
 
 		@media screen and (max-width: $break-3col) {
 			max-width: $two-col-work-content-width + 50; // 50 to cover extra margin/padding/block stuff
@@ -85,6 +89,11 @@
 			max-width: $one-col-work-content-width + 40; // 40 to cover extra margin/padding/block stuff
 		}
 
+		.loading {
+			margin-top: 145px;
+			width: 40px;
+			margin: 0 auto;
+		}
 
 		.intro {
 			display: block;
