@@ -1,0 +1,87 @@
+/* Cal-HeatMap CSS */
+
+.heatmap {
+
+	.graph-browse-previous,
+	.graph-browse-next {
+		padding: 5px;
+		background-image: linear-gradient(to bottom, rgb(255, 255, 255), rgb(230, 230, 230));
+		border: 1px solid #999;
+		border-radius: 3px;
+		line-height: 12px;
+		font-size: 12px;
+		font-family: "Lucida Grande", Lucida, Verdana, sans-serif;
+		text-decoration: none;
+
+		&:hover {
+			text-decoration: none;
+		}
+	}
+
+	.graph-browse-previous {
+		margin-right: 5px;
+	}
+
+	.graph {
+		clear: both;
+		display: block;
+		margin-top: 10px;
+		font-family: "Lucida Grande", Lucida, Verdana, sans-serif;
+	}
+
+	.graph-label {
+		fill: #999;
+		font-size: 10px;
+	}
+
+	.graph-rect {
+		fill: #ededed;
+		shape-rendering: crispedges;
+
+		&:hover {
+			stroke: #000;
+			stroke-width: 1px;
+		}
+	}
+
+
+	.hover_cursor:hover {
+		cursor: pointer;
+	}
+
+	.qi {
+		background-color: #999;
+		fill: #999;
+	}
+
+	.q0 {
+		background-color: #fff;
+		fill: #fff;
+		stroke: #ededed;
+	}
+
+	.q1 {
+		background-color: #d9dedf;
+		fill: #d9dedf;
+	}
+
+	.q2 {
+		background-color: #b4cdd4;
+		fill: #b4cdd4;
+	}
+
+	.q3 {
+		background-color: #8bbdcb;
+		fill: #8bbdcb;
+	}
+
+	.q4 {
+		background-color: #68b6cb;
+		fill: #68b6cb;
+	}
+
+	.q5 {
+		background-color: #2ba8cb;
+		fill: #2ba8cb;
+	}
+}
