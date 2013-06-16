@@ -102,6 +102,7 @@
 			},
 
 		});
+		this.chartel.show();
 	}
 
 	p._onGithubActivityDataFail = function ( error, textStatus, errorThrown ) {
