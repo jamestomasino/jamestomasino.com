@@ -8,7 +8,50 @@
 	text-align: center;
 	white-space-collapsing:discard;
 
+	.icons {
+		position: relative;
+		margin: 0 auto;
+		max-width: $full-work-content-width;
+
+		@media screen and (max-width: $break-3col) {
+			max-width: $two-col-work-content-width;
+		}
+
+		@media screen and (max-width: $break-2col) {
+			max-width: $one-col-work-content-width;
+		}
+
+		a {
+			display: inline-block;
+			width: 50px;
+			height: 50px;
+			text-indent: -999px;
+		}
+
+		.icon_coderbits {
+			@include     bg("icon_coderbits.jpg");
+			@include retina("icon_coderbits2x.png", 50, 50 );
+		}
+
+		.icon_github {
+			@include     bg("icon_github.jpg");
+			@include retina("icon_github2x.png", 50, 50 );
+		}
+
+		.icon_overview {
+			@include     bg("icon_overview.jpg");
+			@include retina("icon_overview2x.png", 50, 50 );
+		}
+
+		.icon_twitter {
+			@include     bg("icon_twitter.jpg");
+			@include retina("icon_twitter2x.png", 50, 50 );
+		}
+
+	}
+
 	.overview {
+		clear: both;
 		display: block;
 		position: relative;
 		margin: 40px auto 0 auto;
