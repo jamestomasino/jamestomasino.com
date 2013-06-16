@@ -806,7 +806,6 @@ CalHeatMap.prototype = {
 						(data[domainUnit].hasOwnProperty(subDomainUnit) ?
 							(" " + parent.scale(data[domainUnit][subDomainUnit])) : ""
 						);
-						console.log (htmlClass);
 
 						if (parent.options.onClick !== null) {
 							htmlClass += " hover_cursor";
