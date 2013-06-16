@@ -191,7 +191,9 @@
 			display: none;
 			height: 200px;
 			margin-left: 120px;
-			overflow: scroll;
+			overflow-x: auto;
+			overflow-y: hidden;
+
 			@media screen and (max-width: $break-3col) {
 				max-width: $two-col-work-content-width;
 				margin-left: 25px;
