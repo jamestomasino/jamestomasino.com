@@ -30,22 +30,22 @@
 
 		.icon_coderbits {
 			@include     bg("icon_coderbits.jpg");
-			@include retina("icon_coderbits2x.jpg", 50, 50 );
+			@include retina("icon_coderbits@2x.jpg", 50, 50 );
 		}
 
 		.icon_github {
 			@include     bg("icon_github.jpg");
-			@include retina("icon_github2x.jpg", 50, 50 );
+			@include retina("icon_github@2x.jpg", 50, 50 );
 		}
 
 		.icon_overview {
 			@include     bg("icon_overview.jpg");
-			@include retina("icon_overview2x.jpg", 50, 50 );
+			@include retina("icon_overview@2x.jpg", 50, 50 );
 		}
 
 		.icon_twitter {
 			@include     bg("icon_twitter.jpg");
-			@include retina("icon_twitter2x.jpg", 50, 50 );
+			@include retina("icon_twitter@2x.jpg", 50, 50 );
 		}
 
 	}
