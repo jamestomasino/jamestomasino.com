@@ -1,49 +1,69 @@
-var linkedin_feed = 'http://www.linkedin.com/in/jamestomasino'
+(function(window, document, $) {
+	"use strict";
 
-$.when (
-	$.ajax ( { type: 'GET',
-		url: 'services/linkedin.php?u=' + linkedin_feed,
-		dataType: 'html'
-	})
-).then( $.proxy(onLinkedInSuccess, this), $.proxy(onLinkedInFail, this) );
+	var linkedin_feed = 'http://www.linkedin.com/in/jamestomasino'
 
-function onLinkedInSuccess ( o ){
-	try {
-		var searchContainer = document.createElement("div");
-		searchContainer.innerHTML = o;
-		var searchContent = searchContainer.getElementsByClassName('position');
-	} catch (e) {
-		// Parse errors count as fail
-		onLinkedInFail();
-		return;
+	var LinkedIn = function ( elID, parentEl ) {
+		this.el = $(elID);
+		this.parentel = $(parentEl);
+		this.searchContent;
+		this.output;
+
+		$.when (
+			$.ajax ( { type: 'GET',
+				url: 'services/linkedin.php?u=' + linkedin_feed,
+				dataType: 'html'
+			})
+		).then( $.proxy(this._onLinkedInSuccess, this), $.proxy(this._onLinkedInFail, this) );
 	}
 
-	var output = '';
-	var title = '';
-	var org = '';
-	var period = '';
-	for (var i = 0; i < Math.min(9, searchContent.length); ++i){
+	var p = LinkedIn.prototype;
+
+	p._onLinkedInSuccess = function ( o ){
 		try {
-			title = searchContent[i].getElementsByClassName('title')[0].innerText;
-			org = searchContent[i].getElementsByClassName('org')[0].innerHTML;
-			period = searchContent[i].getElementsByClassName('period')[0].innerHTML;
-			desc = searchContent[i].getElementsByClassName('description')[0].innerHTML;
-			output += '<article>'
-			output += '<span class="position-title">' + title + ' - ' + org + '</span>';
-			output += '<div class="period">' + period + '</div>';
-			output += '<section class="desc">' + desc + '</section>';
-			output += '</article>';
-		} catch (e) {}
+			var searchContainer = document.createElement("div");
+			searchContainer.innerHTML = o;
+			this.searchContent = searchContainer.getElementsByClassName('position');
+		} catch (e) {
+			this._onLinkedInFail();
+			return;
+		}
+
+		this.output = '';
+		var title = '';
+		var org = '';
+		var period = '';
+		var desc = '';
+		for (var i = 0; i < Math.min(9, this.searchContent.length); ++i){
+			try {
+				title = this.searchContent[i].getElementsByClassName('title')[0].innerText;
+				org = this.searchContent[i].getElementsByClassName('org')[0].innerHTML;
+				period = this.searchContent[i].getElementsByClassName('period')[0].innerHTML;
+				desc = this.searchContent[i].getElementsByClassName('description')[0].innerHTML;
+
+				this.output += '<article>'
+				this.output += '<span class="position-title">' + title + ' - ' + org + '</span>';
+				this.output += '<div class="period">' + period + '</div>';
+				this.output += '<section class="desc">' + desc + '</section>';
+				this.output += '</article>';
+			} catch (e) {
+				console.log (e);
+			}
+		}
+
+		// If no data found, count that as a failure
+		if (this.output == '') {
+			this._onLinkedInFail();
+		} else {
+			this.parentel.find('.loading').remove();
+			this.el.html(this.output);
+		}
 	}
 
-	// If no data found, count that as a failure
-	if (output == '') {
-		onLinkedInFail();
-	} else {
-		$('#linkedin-content').html(output);
+	p._onLinkedInFail = function ( e ) {
+		this.parentel.hide();
 	}
-}
 
-function onLinkedInFail ( e ) {
-	$('#linkedin-content').hide();
-}
+	window.LinkedIn = LinkedIn;
+
+})(window, document, jQuery);
