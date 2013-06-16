@@ -89,7 +89,7 @@
 			start: start,
 			range: 12,
 			dataType: 'json',
-			id: 'github_graph',
+			id: 'github-graph',
 			domain: 'month',
 			subDomain: 'day',
 			weekStartOnMonday: 0,
