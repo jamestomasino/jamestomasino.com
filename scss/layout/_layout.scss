@@ -144,10 +144,20 @@
 			text-align: left;
 		}
 
-		#github-graph {
+		.heatmap {
 			height: 200px;
-			margin-bottom: 50px;
-			display: none;
+			margin-left: 120px;
+			overflow: scroll;
+			@media screen and (max-width: $break-3col) {
+				max-width: $two-col-work-content-width;
+				margin-left: 25px;
+			}
+
+			@media screen and (max-width: $break-2col) {
+				margin-left: 25px;
+				max-width: $one-col-work-content-width;
+			}
+
 		}
 	}
 }
