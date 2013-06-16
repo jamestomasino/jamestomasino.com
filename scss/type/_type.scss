@@ -47,6 +47,43 @@ em {
 	}
 }
 
+.linkedin {
+	position: relative;
+	text-align: center;
+
+	header {
+		@include adjust-font-size-to ( $linkedin-header );
+	}
+
+	article {
+		clear: both;
+		position: relative;
+		display: block;
+		@include font-heading;
+		@include adjust-font-size-to( $linkedin-body );
+		@include trailer(2);
+
+		.position-title {
+			@include adjust-font-size-to ( $linkedin-title );
+			line-height: 18px;
+			text-align: left;
+		}
+
+		.period {
+			@include adjust-font-size-to ( $linkedin-period );
+		}
+
+
+		.desc {
+			@include font-body;
+			@include adjust-font-size-to( $linkedin-body );
+			line-height: 16px;
+			text-align: justify;
+		}
+	}
+
+}
+
 .coderbits {
 	position: relative;
 

@@ -67,6 +67,70 @@
 		}
 	}
 
+	.linkedin {
+		display: block;
+		position: relative;
+		margin: 40px auto 0 auto;
+		padding: 0;
+		text-align: center;
+
+		max-width: $full-work-content-width + 50;
+		text-align: left;
+
+		@media screen and (max-width: $break-3col) {
+			max-width: $two-col-work-content-width + 50; // 50 to cover extra margin/padding/block stuff
+		}
+
+		@media screen and (max-width: $break-2col) {
+			max-width: $one-col-work-content-width + 40; // 40 to cover extra margin/padding/block stuff
+		}
+
+
+		.intro {
+			display: block;
+			position: relative;
+			margin: 50px auto 0 auto;
+			max-width: $full-work-content-width;
+
+			@media screen and (max-width: $break-3col) {
+				max-width: $two-col-work-content-width;
+			}
+
+			@media screen and (max-width: $break-2col) {
+				max-width: $one-col-work-content-width;
+			}
+
+			header {
+				padding: 25px 0;
+				text-align: center;
+			}
+		}
+
+		article {
+			position: relative;
+			@include inline-block;
+			@include box-sizing(content-box);
+			border-collapse: collapse;
+			width: $work-block-width;
+			max-height: $work-block-height + 50;
+			vertical-align: top;
+			padding: $work-block-padding;
+			margin: $work-block-margin;
+
+			p {
+				@include trailer;
+			}
+
+			.desc {
+				display: block;
+				text-align: justify;
+			}
+		}
+
+
+
+	}
+
 	.coderbits {
 		display: block;
 		margin: 40px auto 0 auto;
