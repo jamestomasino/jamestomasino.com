@@ -1,6 +1,7 @@
 //= require sections/coderbits
 //= require sections/github
 //= require sections/twitter
+//= require sections/linkedin
 //= require sections/analytics
 
 var coderbits = new Coderbits( '#coderbits-chart', '.coderbits' );
