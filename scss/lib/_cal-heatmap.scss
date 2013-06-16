@@ -1,7 +1,9 @@
 /* Cal-HeatMap CSS */
 
-	.graph-browse-previous, .graph-browse-next
-	{
+.heatmap {
+
+	.graph-browse-previous,
+	.graph-browse-next {
 		padding: 5px;
 		background-image: linear-gradient(to bottom, rgb(255, 255, 255), rgb(230, 230, 230));
 		border: 1px solid #999;
@@ -10,43 +12,38 @@
 		font-size: 12px;
 		font-family: "Lucida Grande", Lucida, Verdana, sans-serif;
 		text-decoration: none;
+
+		&:hover {
+			text-decoration: none;
+		}
 	}
 
-	.graph-browse-previous:hover, .graph-browse-next:hover {
-		text-decoration: none;
-
-	}
-
-	.graph-browse-previous
-	{
+	.graph-browse-previous {
 		margin-right: 5px;
 	}
 
-	.graph
-	{
+	.graph {
 		clear: both;
 		display: block;
 		margin-top: 10px;
 		font-family: "Lucida Grande", Lucida, Verdana, sans-serif;
 	}
 
-	.graph-label
-	{
+	.graph-label {
 		fill: #999;
-		font-size: 10px
+		font-size: 10px;
 	}
 
-	.graph-rect
-	{
+	.graph-rect {
 		fill: #ededed;
-		shape-rendering: crispedges
+		shape-rendering: crispedges;
+
+		&:hover {
+			stroke: #000;
+			stroke-width: 1px;
+		}
 	}
 
-	.graph-rect:hover
-	{
-		stroke: #000;
-		stroke-width: 1px
-	}
 
 	.hover_cursor:hover {
 		cursor: pointer;
@@ -57,39 +54,34 @@
 		fill: #999;
 	}
 
-	.q0
-	{
+	.q0 {
 		background-color: #fff;
 		fill: #fff;
-		stroke: #ededed
+		stroke: #ededed;
 	}
 
-	.q1
-	{
-		background-color: #dae289;
-		fill: #dae289
+	.q1 {
+		background-color: #d9dedf;
+		fill: #d9dedf;
 	}
 
-	.q2
-	{
-		background-color: #cedb9c;
-		fill: #9cc069
+	.q2 {
+		background-color: #b4cdd4;
+		fill: #b4cdd4;
 	}
 
-	.q3
-	{
-		background-color: #b5cf6b;
-		fill: #669d45
+	.q3 {
+		background-color: #8bbdcb;
+		fill: #8bbdcb;
 	}
 
-	.q4
-	{
-		background-color: #637939;
-		fill: #637939
+	.q4 {
+		background-color: #68b6cb;
+		fill: #68b6cb;
 	}
 
-	.q5
-	{
-		background-color: #3b6427;
-		fill: #3b6427
+	.q5 {
+		background-color: #2ba8cb;
+		fill: #2ba8cb;
 	}
+}

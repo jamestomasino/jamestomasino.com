@@ -82,7 +82,6 @@
 			var activity = this.activityData[i];
 			data[ String(new Date(activity[0]).getTime() / 1000) ] = activity[1];
 		}
-		console.log (data);
 
 		this.cal = new CalHeatMap();
 		this.cal.init({
@@ -93,7 +92,15 @@
 			id: 'github_graph',
 			domain: 'month',
 			subDomain: 'day',
-			scale: [3,6,9,12,15]
+			weekStartOnMonday: 0,
+			domainGutter: -12,
+			scale: [3,6,10,14],
+			format: {
+				date: "%e %B %Y",
+				legend: "%b",
+				connector: "on"
+			},
+
 		});
 	}
 
@@ -116,7 +123,6 @@
 		}
 
 		// Now that the basics are loaded, go for the heatmap
-		console.log ('services/json.php?u=' + github_api_activity);
 		$.when (
 			$.ajax ( { type: 'GET',
 				url: 'services/json.php?u=' + github_api_activity,
