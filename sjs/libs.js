@@ -7,4 +7,4 @@
 //= require ./lib/highcharts
 //= require ./lib/handlebars
 //= require ./lib/d3.min
-//= require ./lib/cal-heatmap.min
+//= require ./lib/cal-heatmap
