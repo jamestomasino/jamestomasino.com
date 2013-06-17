@@ -28,6 +28,9 @@ a {
 
 	&:hover {
 		color: $work-hover;
+		@include transition-property(color);
+		@include transition-duration(0.5s);
+		@include transition-timing-function(ease-in);
 	}
 }
 
@@ -39,6 +42,10 @@ em {
 
 	header {
 		@include adjust-font-size-to( $intro-header-large );
+
+		@include transition-property(font-size);
+		@include transition-duration(0.5s);
+		@include transition-timing-function(ease-in);
 
 		@media screen and (max-width: $break-2col) {
 			@include adjust-font-size-to( $intro-header-small );
