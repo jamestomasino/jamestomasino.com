@@ -18,14 +18,15 @@
 		}
 
 		@media screen and (max-width: $break-2col) {
-			max-width: $one-col-work-content-width;
+			max-width: 200px; //$one-col-work-content-width;
 		}
 
-		a {
+		.icon {
 			display: inline-block;
 			width: 50px;
 			height: 50px;
 			text-indent: -9999px;
+			padding-bottom:3px;
 		}
 
 		.icon_linkedin {
