@@ -22,7 +22,7 @@ enquire2.register( { "max-width": 887, "min-width":598 }, {
 	}
 });
 
-enquire2.register( { "max-width": 888 }, {
+enquire2.register( { "min-width": 888 }, {
 	match : function() {
 		console.log ('3');
 	}
