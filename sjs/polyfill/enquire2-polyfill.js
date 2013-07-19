@@ -72,6 +72,15 @@ window.enquire2 = ( function( window, document, undefined ) {
 		this.matched = false;
 		this.options = options;
 		this.handlers = handlers;
+
+		// defer setup
+		this.deferSetup = this.handlers.hasOwnProperty('deferSetup') ? this.handlers.deferSetup : false;
+		if ( this.handlers.hasOwnProperty('setup') ) {
+			if ( this.deferSetup !== true ) this.handlers.setup();
+		} else {
+			this.deferSetup = false;
+		}
+
 		this.assess();
 	}
 
@@ -103,6 +112,11 @@ window.enquire2 = ( function( window, document, undefined ) {
 
 			if (bool) {
 				if (this.matched === false) {
+					if (this.deferSetup === true) {
+						this.deferSetup = false;
+						this.handlers.setup();
+					}
+
 					if ( this.handlers.hasOwnProperty('match') ) {
 						this.handlers.match();
 					}

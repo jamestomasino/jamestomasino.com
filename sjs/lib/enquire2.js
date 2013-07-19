@@ -67,6 +67,14 @@ window.enquire2 = window.enquire2 || ( function( window, document, matchMedia, u
 		this.handlers = handlers;
 		this.mql = matchMedia(query);
 
+		// defer setup
+		this.deferSetup = this.handlers.hasOwnProperty('deferSetup') ? this.handlers.deferSetup : false;
+		if ( this.handlers.hasOwnProperty('setup') ) {
+			if ( this.deferSetup !== true ) this.handlers.setup();
+		} else {
+			this.deferSetup = false;
+		}
+
 		var self = this;
 		this.listener = function (mql) {
 			self.mql = mql;
@@ -84,6 +92,10 @@ window.enquire2 = window.enquire2 || ( function( window, document, matchMedia, u
 		assess : function () {
 			var matches = this.mql.matches;
 			if (matches) {
+				if (this.deferSetup === true) {
+					this.deferSetup = false;
+					this.handlers.setup();
+				}
 				if ( this.handlers.hasOwnProperty('match') ) {
 					this.handlers.match();
 				}
