@@ -3,12 +3,20 @@ window.enquire2 = window.enquire2 || ( function( window, document, matchMedia, u
 	"use strict";
 
 	var bool;
+	var queryList = [];
 
 	// Add more options to increase library features
 	var globalOptions = {
-		'device': 'screen',
+		'device': 'only screen',
 		'min-width': undefined,
 		'max-width': undefined
+	}
+
+	var delegate = function (object, method) {
+		var shim = function() {
+			return method.apply(object, arguments);
+		}
+		return shim;
 	}
 
 	var clone = function (obj) {
@@ -49,43 +57,39 @@ window.enquire2 = window.enquire2 || ( function( window, document, matchMedia, u
 			query += ' and (max-width: ' + options['max-width'] + ')';
 		}
 
-		return new MediaQuery(query, handlers);
+		var mediaquery = new MediaQuery(query, handlers);
+		queryList.push ( mediaquery );
+		return mediaquery;
 	}
 
 	function MediaQuery ( query, handlers ) {
+		this.query = query;
+		this.handlers = handlers;
+		this.mql = matchMedia(query);
+
 		var self = this;
-
-		self.query = query;
-		self.handlers = handlers;
-		self.mql = matchMedia(query);
-		self.matched = false;
-
-		self.listener = function (mql) {
+		this.listener = function (mql) {
 			self.mql = mql;
 			self.assess();
 		}
 
-		self.mql.addListener(self.listener);
+		this.mql.addListener( delegate( this, self.listener ) );
+		this.assess();
 
-		return self.mql;
+		return this.mql;
 	}
 
 	MediaQuery.prototype = {
 
 		assess : function () {
-
-			console.log (self);
-			var matches = self.mql.matches;
-
-			if ( matches && !self.matched ) {
-				if ( self.handlers.hasOwnProperty('match') ) {
-					self.matched = true;
-					self.handlers.match();
+			var matches = this.mql.matches;
+			if (matches) {
+				if ( this.handlers.hasOwnProperty('match') ) {
+					this.handlers.match();
 				}
-			} else if ( !matches && self.matched ) {
-				if ( self.handlers.hasOwnProperty('unmatch') ) {
-					self.matched = false;
-					self.handlers.unmatch();
+			} else {
+				if ( this.handlers.hasOwnProperty('unmatch') ) {
+					this.handlers.unmatch();
 				}
 			}
 		}
