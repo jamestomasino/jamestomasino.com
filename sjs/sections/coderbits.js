@@ -33,27 +33,23 @@
 					self.vals[i] = topvals[1].slice(0);
 				}
 
-				//if (Modernizr.matchMedia) {
-					//enquire.register("screen and (max-width:597px)", {
-						//match : function() {
-							//self.buildCharts(1);
-						//}
-					//});
+				//enquire2.register( { "max-width": 597 }, {
+					//match : function() {
+						//self.buildCharts(1);
+					//}
+				//});
 
-					//enquire.register("screen and (min-width:598px) and (max-width:887px)", {
-						//match : function() {
-							//self.buildCharts(2);
-						//}
-					//});
+				//enquire2.register( { "max-width": 887, "min-width":598 }, {
+					//match : function() {
+						//self.buildCharts(2);
+					//}
+				//});
 
-					//enquire.register("screen and (min-width:888px)", {
-						//match : function() {
-							//self.buildCharts(4);
-						//}
-					//});
-				//} else {
-					self.buildCharts(4);
-				//}
+				//enquire2.register( { "max-width": 888 }, {
+					//match : function() {
+						//self.buildCharts(4);
+					//}
+				//});
 
 			},
 
