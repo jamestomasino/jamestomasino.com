@@ -27,15 +27,15 @@ window.enquire2 = window.enquire2 || ( function( window, document, matchMedia, u
 
 		if ( options['min-width'] !== undefined ) {
 			if (typeof options['min-width'] == 'number' ) options['min-width'] = options['min-width'] + 'px';
-			query += ' and (min-width' + options['min-width'] + ')';
+			query += ' and (min-width: ' + options['min-width'] + ')';
 		}
 
 		if ( options['max-width'] !== undefined ) {
 			if (typeof options['max-width'] == 'number' ) options['max-width'] = options['max-width'] + 'px';
-			query += ' and (max-width' + options['max-width'] + ')';
+			query += ' and (max-width: ' + options['max-width'] + ')';
 		}
 
-		return matchMedia(q);
+		return matchMedia(query);
 
 	};
 
