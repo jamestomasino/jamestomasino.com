@@ -1,4 +1,4 @@
-(function(window, document, $, enquire) {
+(function(window, document, $, enquire, Modernizr) {
 	"use strict";
 
 	var graphTypes = ['Languages', 'Environments', 'Skills', 'Traits'];
@@ -33,7 +33,7 @@
 					self.vals[i] = topvals[1].slice(0);
 				}
 
-				if (window.matchMedia) {
+				if (Modernizr.matchMedia) {
 					enquire.register("screen and (max-width:597px)", {
 						match : function() {
 							self.buildCharts(1);
@@ -202,4 +202,4 @@
 
 	window.Coderbits = Coderbits;
 
-})(window, document, jQuery, enquire);
+})(window, document, jQuery, enquire, Modernizr);
