@@ -25,11 +25,11 @@
 	var p = Twitter.prototype;
 
 	p._onDataSuccess = function ( tweets ) {
-		var searchContainer = document.createElement("div");
-		searchContainer.innerHTML = tweets.body;
+		var searchContainer = $("<div></div>");
+		searchContainer.html (tweets.body);
 
-		var entryTitles = searchContainer.getElementsByClassName("e-entry-title");
-		var entryTimes = searchContainer.getElementsByClassName("dt-updated");
+		var entryTitles = searchContainer.find(".e-entry-title");
+		var entryTimes = searchContainer.find(".dt-updated");
 
 		this.parentEl.find('.loading').remove();
 
