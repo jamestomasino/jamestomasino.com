@@ -3,10 +3,16 @@
 
 	var graphTypes = ['Languages', 'Environments', 'Skills', 'Traits'];
 
-	var Coderbits = function ( id, parentel ) {
+	var Coderbits = function ( id, hideOnFail) {
 		var self = this;
 		self.el = $(id);
-		self.parentel = $(parentel);
+		self.hideOnFail = hideOnFail;
+
+		// Test for SVG Functionality, or die
+		if ( $('html').hasClass('no-svg') ) {
+			die();
+			return;
+		}
 
 		if ( self.el.length ) {
 			var username = self.el.attr('data-coderbits-username');
@@ -54,9 +60,19 @@
 			},
 
 			function () {
-				self.el.html(''); // clear the area on fail
-				self.parentel.hide(); // and hide it
+				die();
 			});
+		}
+
+		function die (){
+			self.el.html(''); // clear the area on fail
+			if ( typeof self.hideOnFail == 'string' ) {
+					$(self.hideOnFail).hide();
+			} else if (self.hideOnFail.length > 0 ) {
+				for (var i = 0; i <self.hideOnFail.length; ++i ) {
+					$(self.hideOnFail[i]).hide();
+				}
+			}
 		}
 	}
 
