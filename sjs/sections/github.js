@@ -106,7 +106,6 @@
 	}
 
 	p._onGithubActivityDataFail = function ( error, textStatus, errorThrown ) {
-		console.log ('error:', textStatus, errorThrown);
 		this.chartel.hide();
 	}
 
@@ -121,6 +120,12 @@
 				var repo = $(this.repoTemplate(this.repoJSON[i]));
 				this.contentel.append(repo);
 			}
+		}
+
+		// Test for SVG Functionality, or die
+		if ( $('html').hasClass('no-svg') ) {
+			this._onGithubActivityDataFail();
+			return;
 		}
 
 		// Now that the basics are loaded, go for the heatmap

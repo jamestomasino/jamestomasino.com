@@ -3,9 +3,10 @@
 
 	var linkedin_feed = 'http://www.linkedin.com/in/jamestomasino'
 
-	var LinkedIn = function ( elID, parentEl ) {
+	var LinkedIn = function ( elID, parentEl, hideOnFail ) {
 		this.el = $(elID);
 		this.parentel = $(parentEl);
+		this.hideOnFail = hideOnFail;
 		this.searchContent;
 		this.output;
 
@@ -61,7 +62,13 @@
 	}
 
 	p._onLinkedInFail = function ( e ) {
-		this.parentel.hide();
+		if ( typeof this.hideOnFail == 'string' ) {
+				$(this.hideOnFail).hide();
+		} else if ( this.hideOnFail.length > 0 ) {
+			for (var i = 0; i < this.hideOnFail.length; ++i ) {
+				$(this.hideOnFail[i]).hide();
+			}
+		}
 	}
 
 	window.LinkedIn = LinkedIn;
