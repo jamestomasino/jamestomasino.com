@@ -1,4 +1,4 @@
-(function(window, document, $, enquire2, Modernizr) {
+(function(window, document, $, enquire, Modernizr) {
 	"use strict";
 
 	var graphTypes = ['Languages', 'Environments', 'Skills', 'Traits'];
@@ -39,24 +39,23 @@
 					self.vals[i] = topvals[1].slice(0);
 				}
 
-				enquire2.register( { "max-width": 597 }, {
-					match : function() {
-						self.buildCharts(1);
-					}
-				});
+				enquire.register("screen and (max-width:597px)", {
+						match : function() {
+							self.buildCharts(1);
+						}
+					});
 
-				enquire2.register( { "max-width": 887, "min-width":598 }, {
-					match : function() {
-						self.buildCharts(2);
-					}
-				});
+					enquire.register("screen and (min-width:598px) and (max-width:887px)", {
+						match : function() {
+							self.buildCharts(2);
+						}
+					});
 
-				enquire2.register( { "min-width": 888 }, {
-					match : function() {
-						self.buildCharts(4);
-					}
-				});
-
+					enquire.register("screen and (min-width:888px)", {
+						match : function() {
+							self.buildCharts(4);
+						}
+					});
 			},
 
 			function () {
@@ -214,4 +213,4 @@
 
 	window.Coderbits = Coderbits;
 
-})(window, document, jQuery, enquire2, Modernizr);
+})(window, document, jQuery, enquire, Modernizr);

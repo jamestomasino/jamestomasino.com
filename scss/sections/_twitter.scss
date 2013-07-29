@@ -1,0 +1,81 @@
+.twitter {
+	display: block;
+	position: relative;
+	margin: 40px auto;
+	padding: 25px;
+	text-align: center;
+	max-width: $full-work-content-width;
+
+	@include transition-property(max-width);
+	@include transition-duration(0.5s);
+	@include transition-timing-function(ease-in);
+
+	.content {
+		text-align: left;
+	}
+
+	img {
+		margin-top: 145px;
+		width: 40px;
+		margin: 0 auto;
+	}
+
+	@media screen and (max-width: $break-3col) {
+		max-width: $two-col-work-content-width;
+	}
+
+	@media screen and (max-width: $break-2col) {
+		max-width: $one-col-work-content-width;
+	}
+	header {
+		@include adjust-font-size-to( $twitter-header );
+		line-height: 18px;
+		@include trailer();
+		text-align: center;
+	}
+
+	.tweet {
+		clear: both;
+		position: relative;
+		display: block;
+		@include font-body;
+		@include adjust-font-size-to( $twitter-body );
+		@include trailer(3);
+		text-align: justify;
+
+		.tweet-prefix {
+			position: absolute;
+			top: -25px;
+			left: -25px;
+			color: $twitter-quote;
+			@include font-quote;
+			@include adjust-font-size-to( 120px );
+
+			@media screen and (max-width: $break-2col) {
+				@include adjust-font-size-to( 80px );
+			}
+
+		}
+
+		.tweet-body {
+			@include adjust-font-size-to( $twitter-body );
+			line-height: $twitter-body + 4;
+			display: block;
+			padding-left: 35px;
+			padding-right: 70px;
+			overflow: hidden;
+
+			@media screen and (max-width: $break-2col) {
+				@include adjust-font-size-to( $twitter-body - 2px );
+				padding-right: 0;
+			}
+
+		}
+
+		.tweet-meta {
+			display: block;
+			@include adjust-font-size-to( $twitter-body - 4px );
+			float: right;
+		}
+	}
+}

@@ -1,0 +1,33 @@
+.overview {
+	clear: both;
+	display: block;
+	position: relative;
+	margin: 40px auto 0 auto;
+	padding: 25px;
+	max-width: $full-work-content-width;
+
+	@include transition-property(max-width);
+	@include transition-duration(0.5s);
+	@include transition-timing-function(ease-in);
+
+	@media screen and (max-width: $break-3col) {
+		max-width: $two-col-work-content-width;
+	}
+
+	@media screen and (max-width: $break-2col) {
+		max-width: $one-col-work-content-width;
+	}
+
+	header {
+		@include adjust-font-size-to( $intro-header-large );
+
+		@include transition-property(font-size);
+		@include transition-duration(0.5s);
+		@include transition-timing-function(ease-in);
+
+		@media screen and (max-width: $break-2col) {
+			@include adjust-font-size-to( $intro-header-small );
+			@include trailer();
+		}
+	}
+}

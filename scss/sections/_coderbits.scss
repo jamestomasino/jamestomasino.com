@@ -1,0 +1,59 @@
+.coderbits {
+	display: block;
+	position: relative;
+	margin: 40px auto 0 auto;
+	padding: 30px 0 0 0;
+	max-width: $full-work-content-width;
+	text-align: center;
+
+	@include transition-property(max-width);
+	@include transition-duration(0.5s);
+	@include transition-timing-function(ease-in);
+
+	@media screen and (max-width: $break-3col) {
+		max-width: $two-col-work-content-width; // 50 to cover extra margin/padding/block stuff
+	}
+
+	@media screen and (max-width: $break-2col) {
+		max-width: $one-col-work-content-width; // 40 to cover extra margin/padding/block stuff
+	}
+
+	img {
+		margin-top: 145px;
+	}
+
+	svg {
+		width: 100% !important;
+		height: 100% !important;
+	}
+
+	header {
+		@include adjust-font-size-to( $coderbits-header );
+		line-height: 18px;
+		@include trailer();
+		text-align: center;
+	}
+
+	p {
+		@include adjust-font-size-to( $coderbits-body );
+		text-align: justify;
+	}
+
+	.pie_label {
+		@include font-heading;
+		@include adjust-font-size-to( $coderbits-header );
+	}
+
+	.chart{
+		height: 400px;
+
+		@media screen and (max-width: $break-3col) {
+			height: 680px;
+		}
+
+		@media screen and (max-width: $break-2col) {
+			height: 1350px;
+		}
+	}
+
+}
