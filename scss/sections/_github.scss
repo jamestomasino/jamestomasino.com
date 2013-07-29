@@ -1,0 +1,91 @@
+.github {
+	display: block;
+	position: relative;
+	margin: 0 auto;
+	padding: 0;
+	text-align: left;
+	max-width: $full-work-content-width + 50;
+
+	@include transition-property(max-width);
+	@include transition-duration(0.5s);
+	@include transition-timing-function(ease-in);
+
+	@media screen and (max-width: $break-3col) {
+		max-width: $two-col-work-content-width + 50; // 50 to cover extra margin/padding/block stuff
+	}
+
+	@media screen and (max-width: $break-2col) {
+		max-width: $one-col-work-content-width + 40; // 40 to cover extra margin/padding/block stuff
+	}
+
+	header {
+		@include adjust-font-size-to( $github-header );
+		line-height: 18px;
+		@include trailer();
+		text-align: center;
+	}
+
+	.repo {
+		clear: both;
+		position: relative;
+		@include inline-block;
+		@include box-sizing(content-box);
+		@include font-heading;
+		@include adjust-font-size-to( $github-body );
+		@include trailer(2);
+		border-collapse: collapse;
+		text-align: justify;
+		width: $work-block-width;
+		max-height: $work-block-height;
+		vertical-align: top;
+		padding: $work-block-padding;
+		margin: $work-block-margin;
+
+		p {
+			@include trailer;
+		}
+
+		.repo-desc {
+			display: block;
+			text-align: left;
+			@include font-body;
+			@include adjust-font-size-to( $github-body );
+			line-height: 22px;
+		}
+	}
+
+	.intro {
+		display: block;
+		position: relative;
+		margin: 40px auto 0 auto;
+		padding: 25px;
+		max-width: $full-work-content-width;
+
+		@media screen and (max-width: $break-3col) {
+			max-width: $two-col-work-content-width;
+		}
+
+		@media screen and (max-width: $break-2col) {
+			max-width: $one-col-work-content-width;
+		}
+	}
+
+	.heatmap {
+		display: none;
+		height: 200px;
+		margin-left: 120px;
+		overflow-x: auto;
+		overflow-y: hidden;
+
+		@media screen and (max-width: $break-3col) {
+			max-width: $two-col-work-content-width;
+			margin-left: 25px;
+		}
+
+		@media screen and (max-width: $break-2col) {
+			margin-left: 25px;
+			max-width: $one-col-work-content-width;
+		}
+
+	}
+}

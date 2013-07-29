@@ -1,0 +1,88 @@
+.linkedin {
+	display: block;
+	position: relative;
+	margin: 40px auto 0 auto;
+	padding: 0;
+	max-width: $full-work-content-width + 50;
+	text-align: center;
+
+	@include transition-property(max-width);
+	@include transition-duration(0.5s);
+	@include transition-timing-function(ease-in);
+
+	@media screen and (max-width: $break-3col) {
+		max-width: $two-col-work-content-width + 50; // 50 to cover extra margin/padding/block stuff
+	}
+
+	@media screen and (max-width: $break-2col) {
+		max-width: $one-col-work-content-width + 40; // 40 to cover extra margin/padding/block stuff
+	}
+
+	.loading {
+		margin-top: 145px;
+		width: 40px;
+		margin: 0 auto;
+	}
+
+	.intro {
+		display: block;
+		position: relative;
+		margin: 50px auto 0 auto;
+		max-width: $full-work-content-width;
+
+		@media screen and (max-width: $break-3col) {
+			max-width: $two-col-work-content-width;
+		}
+
+		@media screen and (max-width: $break-2col) {
+			max-width: $one-col-work-content-width;
+		}
+
+		header {
+			padding: 25px 0;
+			text-align: center;
+		}
+	}
+
+	header {
+		@include adjust-font-size-to ( $linkedin-header );
+	}
+
+	article {
+		clear: both;
+		position: relative;
+		@include inline-block;
+		@include box-sizing(content-box);
+		@include font-heading;
+		@include adjust-font-size-to( $linkedin-body );
+		@include trailer(2);
+		border-collapse: collapse;
+		width: $work-block-width;
+		max-height: $work-block-height + 50;
+		vertical-align: top;
+		padding: $work-block-padding;
+		margin: $work-block-margin;
+
+		.position-title {
+			@include adjust-font-size-to ( $linkedin-title );
+			line-height: 18px;
+			text-align: left;
+		}
+
+		.period {
+			@include adjust-font-size-to ( $linkedin-period );
+		}
+
+		p {
+			@include trailer;
+		}
+
+		.desc {
+			display: block;
+			@include font-body;
+			@include adjust-font-size-to( $linkedin-body );
+			line-height: 16px;
+			text-align: justify;
+		}
+	}
+}
