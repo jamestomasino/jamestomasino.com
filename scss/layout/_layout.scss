@@ -27,6 +27,17 @@
 			height: 50px;
 			text-indent: -9999px;
 			padding-bottom:3px;
+
+			@include transition-property(opacity, filter);
+			@include transition-duration(0.5s);
+			@include transition-timing-function(ease-in);
+
+			&.disabled {
+				@include opacity(0.7);
+				filter: url(../images/filters.svg#grayscale); /* Firefox 3.5+ */
+				filter: gray; /* IE6-9 */
+				-webkit-filter: grayscale(1); /* Google Chrome & Safari 6+ */
+			}
 		}
 
 		.icon_linkedin {

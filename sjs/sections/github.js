@@ -13,13 +13,14 @@
 	var lastQueryDate = store.get ('jamestomasino_github_lastquery');
 	var d = new Date();
 
-	var Github = function ( contentid, chartid, parentid ) {
+	var Github = function ( contentid, chartid, parentid, icon ) {
 		this.repoJSON
 		this.repoTemplate;
 
 		this.contentel = $(contentid);
 		this.chartel = $(chartid);
 		this.parentel = $(parentid);
+		this.icon = $(icon);
 
 		this.contentID = contentid;
 		this.chartID = chartid;
@@ -56,6 +57,7 @@
 			store.set ('jamestomasino_github_lastquery', d);
 			store.set ('jamestomasino_github', this.repoJSON );
 			this._processJSON ();
+			this.icon.removeClass('disabled');
 		}
 	}
 
@@ -64,10 +66,14 @@
 		if (this.repoJSON && this.repoJSON.message && (this.repoJSON.message.search('API Rate Limit Exceeded' != -1))) {
 			store.clear(); // Something horrible happened. Lets reset.
 			this.parentel.hide();
+			this.icon.css({opacity:0.5});
 		} else if (this.repoJSON == undefined ){
 			this.parentel.hide();
+			this.icon.css({opacity:0.5});
+		} else {
+			this.icon.removeClass('disabled');
+			$.ajax (githubTemplatePath).then( $.proxy(this._storeHandlebars, this) );
 		}
-		$.ajax (githubTemplatePath).then( $.proxy(this._storeHandlebars, this) );
 	}
 
 

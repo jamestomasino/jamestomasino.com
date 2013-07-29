@@ -3,10 +3,11 @@
 
 	var graphTypes = ['Languages', 'Environments', 'Skills', 'Traits'];
 
-	var Coderbits = function ( id, hideOnFail) {
+	var Coderbits = function ( id, parentel, icon ) {
 		var self = this;
+		self.parentel = $(parentel);
 		self.el = $(id);
-		self.hideOnFail = hideOnFail;
+		self.icon = $(icon);
 
 		// Test for SVG Functionality, or die
 		if ( $('html').hasClass('no-svg') ) {
@@ -45,17 +46,20 @@
 						}
 					});
 
-					enquire.register("screen and (min-width:598px) and (max-width:887px)", {
-						match : function() {
-							self.buildCharts(2);
-						}
-					});
+				enquire.register("screen and (min-width:598px) and (max-width:887px)", {
+					match : function() {
+						self.buildCharts(2);
+					}
+				});
 
-					enquire.register("screen and (min-width:888px)", {
-						match : function() {
-							self.buildCharts(4);
-						}
-					});
+				enquire.register("screen and (min-width:888px)", {
+					match : function() {
+						self.buildCharts(4);
+					}
+				});
+
+				self.icon.removeClass('disabled');
+
 			},
 
 			function () {
@@ -65,13 +69,8 @@
 
 		function die (){
 			self.el.html(''); // clear the area on fail
-			if ( typeof self.hideOnFail == 'string' ) {
-					$(self.hideOnFail).hide();
-			} else if (self.hideOnFail.length > 0 ) {
-				for (var i = 0; i <self.hideOnFail.length; ++i ) {
-					$(self.hideOnFail[i]).hide();
-				}
-			}
+			self.parentel.hide();
+			self.icon.css({opacity:0.5});
 		}
 	}
 
