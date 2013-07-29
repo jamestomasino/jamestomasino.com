@@ -1,3 +1,4 @@
+interactor :off
 notification :off
 
 guard :bundler do

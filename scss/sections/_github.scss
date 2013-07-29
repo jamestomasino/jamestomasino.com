@@ -1,14 +1,10 @@
 .github {
 	display: block;
 	position: relative;
-	margin: 0 auto;
+	margin: 40px auto 0 auto;
 	padding: 0;
 	text-align: left;
 	max-width: $full-work-content-width + 50;
-
-	@include transition-property(max-width);
-	@include transition-duration(0.5s);
-	@include transition-timing-function(ease-in);
 
 	@media screen and (max-width: $break-3col) {
 		max-width: $two-col-work-content-width + 50; // 50 to cover extra margin/padding/block stuff
