@@ -3,7 +3,7 @@
 //= require ./lib/g.raphael-min
 //= require ./lib/g.pie-min
 //= require ./lib/store
-//= require ./lib/enquire2
+//= require ./lib/enquire
 //= require ./lib/highcharts
 //= require ./lib/handlebars
 //= require ./lib/d3.min
