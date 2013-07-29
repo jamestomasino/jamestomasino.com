@@ -33,13 +33,12 @@
 
 		this.parentEl.find('.loading').remove();
 
-		for (var i = 0; i < entryTitles.length; ++i ) {
+		for (var i = 0; i < Math.min(12, entryTitles.length); ++i ) {
 			var tweetBody = $(entryTitles[i]);
 			var tweetMeta = $(entryTimes[i]);
 			tweetBody.removeClass().addClass('tweet-body');
 			tweetMeta.removeClass().addClass('tweet-meta');
 			var tweet = $('<article class="tweet"></article>');
-			tweet.append('<div class="tweet-prefix">&ldquo;</div>');
 			tweet.append(tweetBody);
 			tweet.append(tweetMeta);
 			this.el.append(tweet);
