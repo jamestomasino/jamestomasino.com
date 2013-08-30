@@ -13,3 +13,4 @@
 	Language: English
 	Doctype: HTML5
 	IDE: vim
+	Hosting: GreenQloud
