@@ -14,3 +14,4 @@
 	Doctype: HTML5
 	IDE: vim
 	Hosting: GreenQloud
+	DNS: Namecheap
