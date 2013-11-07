@@ -26,21 +26,27 @@
 		}
 		window.ga('send', 'pageview');
 
-		// Hijack links to enable tracking
-		$('a').bind('click touchend', trackLink )
+		// Hijack links to enable tracking. Use on syntax since dom will change
+		$(document).on('click touchend', 'a', trackLink )
 
 		function trackLink (event) {
 			event.preventDefault();
 			var context = $(this).context;
 			var text = context.text;
 			var href = context.href;
+			var tag = event.currentTarget.outerHTML;
 
-			ga('send', 'event', 'link', 'click', text, {
-				'hitCallback': function() {
-					document.location = href;
-				}
-			} );
-
+			// Ignore anchor links from tracking.
+			if ( /href\=("|')#/i.test(tag) ) {
+				document.location = href;
+			} else {
+				// Send tracking link then navigate.
+				ga('send', 'event', 'link', 'click', text, {
+					'hitCallback': function() {
+						document.location = href;
+					}
+				} );
+			}
 			return false;
 		}
 	}
