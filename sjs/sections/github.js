@@ -15,7 +15,7 @@
 	var startTimeRepo, endTimeRepo;
 	var startTimeChart, endTimeChart;
 
-	var Github = function ( contentid, chartid, parentid, icon ) {
+	var Github = function ( contentid, chartid, parentid, icon, analytics ) {
 
 		startTimeRepo = new Date().getTime();
 
