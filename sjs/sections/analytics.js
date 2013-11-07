@@ -50,6 +50,11 @@
 			return false;
 		}
 	}
+	var p = Analytics.prototype;
+
+	p.trackTime = function ( component, time ) {
+		ga( 'send', 'timing', 'component', component, time );
+	}
 
 	window.Analytics = Analytics;
 

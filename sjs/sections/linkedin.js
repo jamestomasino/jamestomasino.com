@@ -1,14 +1,17 @@
 (function(window, document, $) {
 	"use strict";
 
+	var startTime, endTime;
 	var linkedin_feed = 'http://www.linkedin.com/in/jamestomasino'
 
-	var LinkedIn = function ( elID, parentEl, icon ) {
+	var LinkedIn = function ( elID, parentEl, icon, analytics ) {
+		startTime = new Date().getTime();
 		this.el = $(elID);
 		this.parentel = $(parentEl);
 		this.icon = $(icon);
 		this.searchContent;
 		this.output;
+		this.analytics = analytics;
 
 		$.when (
 			$.ajax ( { type: 'GET',
@@ -59,6 +62,10 @@
 			this.icon.removeClass('disabled');
 			this.parentel.find('.loading').remove();
 			this.el.html(this.output);
+			endTime = new Date().getTime();
+			var timeSpent = endTime - startTime;
+			this.analytics.trackTime( 'linkedin', timeSpent );
+
 		}
 	}
 

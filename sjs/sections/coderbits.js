@@ -1,9 +1,11 @@
-(function(window, document, $, enquire, Modernizr) {
+(function(window, document, $, enquire, Modernizr ) {
 	"use strict";
 
+	var startTime, endTime;
 	var graphTypes = ['Languages', 'Environments', 'Skills', 'Traits'];
 
-	var Coderbits = function ( id, parentel, icon ) {
+	var Coderbits = function ( id, parentel, icon, analytics ) {
+		startTime = new Date().getTime();
 		var self = this;
 		self.parentel = $(parentel);
 		self.el = $(id);
@@ -59,6 +61,9 @@
 				});
 
 				self.icon.removeClass('disabled');
+				endTime = new Date().getTime();
+				var timeSpent = endTime - startTime;
+				analytics.trackTime( 'coderbits', timeSpent );
 
 			},
 
