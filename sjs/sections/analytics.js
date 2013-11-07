@@ -2,21 +2,27 @@
 	"use strict";
 
 	var Analytics = function ( id ) {
-		// Configure Analytics Settings
-		var _gaq = _gaq || [];
-		_gaq.push(['_setAccount', id ]);
-		_gaq.push(['_trackPageview']);
-
-		// Put object into global space
-		window._gaq = _gaq;
-
 		// Add Google Analytics script tag
-		var ga = document.createElement('script');
-		ga.type = 'text/javascript';
-		ga.async = true;
-		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-		var s = document.getElementsByTagName('script')[0];
-		s.parentNode.insertBefore(ga, s);
+		(function (win, doc, o, url, r, a, m) {
+			win['GoogleAnalyticsObject'] = r;
+			win[r] = win[r] || function () {
+				(win[r].q = win[r].q || []).push(arguments)
+			}, win[r].l = 1 * new Date();
+			a = doc.createElement(o),
+			m = doc.getElementsByTagName(o)[0];
+			a.async = 1;
+			a.src = url;
+			m.parentNode.insertBefore(a, m)
+		})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+		if (/localhost/i.test(document.location.origin)) {
+			window.ga('create', id, {
+			  'cookieDomain': 'none'
+			});
+		} else {
+			window.ga('create', id);
+		}
+		window.ga('send', 'pageview');
 	}
 
 	window.Analytics = Analytics;
