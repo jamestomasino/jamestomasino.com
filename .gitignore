@@ -1,11 +1,4 @@
 .sass-cache/*
-css/main.css
-css/main.css.gz
-js/libs.js
-js/libs.js.gz
-js/head.js
-js/head.js.gz
-js/main.js
-js/main.js.gz
-js/polyfill/*
-Gemfile.lock
+css/*
+js/*
+node_modules/*
