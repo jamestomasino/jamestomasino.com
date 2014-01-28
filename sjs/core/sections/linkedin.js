@@ -2,15 +2,15 @@
 	"use strict";
 
 	var startTime, endTime;
-	var linkedin_feed = 'http://www.linkedin.com/in/jamestomasino'
+	var linkedin_feed = 'http://www.linkedin.com/in/jamestomasino';
 
 	var LinkedIn = function ( elID, parentEl, icon, analytics ) {
 		startTime = new Date().getTime();
 		this.el = $(elID);
 		this.parentel = $(parentEl);
 		this.icon = $(icon);
-		this.searchContent;
-		this.output;
+		this.searchContent = '';
+		this.output = '';
 		this.analytics = analytics;
 
 		$.when (
@@ -19,7 +19,7 @@
 				dataType: 'html'
 			})
 		).then( $.proxy(this._onLinkedInSuccess, this), $.proxy(this._onLinkedInFail, this) );
-	}
+	};
 
 	var p = LinkedIn.prototype;
 
@@ -45,7 +45,7 @@
 				period = this.searchContent[i].getElementsByClassName('period')[0].innerHTML;
 				desc = this.searchContent[i].getElementsByClassName('description')[0].innerHTML;
 
-				this.output += '<article>'
+				this.output += '<article>';
 				this.output += '<span class="position-title">' + title + ' - ' + org + '</span>';
 				this.output += '<div class="period">' + period + '</div>';
 				this.output += '<section class="desc">' + desc + '</section>';
@@ -56,7 +56,7 @@
 		}
 
 		// If no data found, count that as a failure
-		if (this.output == '') {
+		if (this.output === '') {
 			this._onLinkedInFail();
 		} else {
 			this.icon.removeClass('disabled');
@@ -67,12 +67,12 @@
 			this.analytics.trackTime( 'linkedin', timeSpent );
 
 		}
-	}
+	};
 
 	p._onLinkedInFail = function ( e ) {
 		this.icon.css({opacity:0.5});
 		this.parentel.hide();
-	}
+	};
 
 	window.LinkedIn = LinkedIn;
 

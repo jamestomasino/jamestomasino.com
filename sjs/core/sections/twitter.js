@@ -19,7 +19,7 @@
 			})
 		).then( $.proxy(this._onDataSuccess, this), $.proxy(this._onDataFail,this) );
 
-	}
+	};
 
 	var p = Twitter.prototype;
 
@@ -48,12 +48,12 @@
 		var timeSpent = endTime - startTime;
 		this.analytics.trackTime( 'twitter', timeSpent );
 
-	}
+	};
 
 	p._onDataFail = function ( error ) {
 		this.parentEl.hide();
 		this.icon.css({opacity:0.5});
-	}
+	};
 
 	window.Twitter = Twitter;
 

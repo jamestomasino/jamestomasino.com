@@ -77,7 +77,7 @@
 			self.parentel.hide();
 			self.icon.css({opacity:0.5});
 		}
-	}
+	};
 
 	var p = Coderbits.prototype;
 
@@ -133,7 +133,7 @@
 			self.paper.clear();
 		} else {
 			self.el.html('');
-			self.paper = Raphael(self.el.attr('id'));
+			self.paper = new Raphael(self.el.attr('id'));
 		}
 
 		self.paper.canvas.removeAttribute('height');
@@ -147,7 +147,9 @@
 				start = 170;
 				break;
 			case 3:
+				/* falls through */
 			case 4:
+				/* falls through */
 			default:
 				start = 120;
 				break;

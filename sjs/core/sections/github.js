@@ -19,8 +19,8 @@
 
 		startTimeRepo = new Date().getTime();
 
-		this.repoJSON
-		this.repoTemplate;
+		this.repoJSON = {};
+		this.repoTemplate = {};
 
 		this.contentel = $(contentid);
 		this.chartel = $(chartid);
@@ -48,7 +48,7 @@
 		} else {
 			this._onGithubRepoDataFail();
 		}
-	}
+	};
 
 	var p = Github.prototype;
 
@@ -68,7 +68,7 @@
 			this.analytics.trackTime( 'github-repo', timeSpentRepo );
 
 		}
-	}
+	};
 
 	p._onGithubRepoDataFail = function ( error ) {
 		startTimeChart = new Date().getTime();
@@ -77,7 +77,7 @@
 			store.clear(); // Something horrible happened. Lets reset.
 			this.parentel.hide();
 			this.icon.css({opacity:0.5});
-		} else if (this.repoJSON == undefined ){
+		} else if (this.repoJSON === undefined ){
 			this.parentel.hide();
 			this.icon.css({opacity:0.5});
 		} else {
@@ -87,7 +87,7 @@
 		endTimeRepo = new Date().getTime();
 		var timeSpentRepo = endTimeRepo - startTimeRepo;
 		this.analytics.trackTime( 'github-repo', timeSpentRepo );
-	}
+	};
 
 
 	p._onGithubActivityDataSuccess = function ( activityData ) {
@@ -126,16 +126,16 @@
 		var timeSpentChart = endTimeChart - startTimeChart;
 		this.analytics.trackTime( 'github-chart', timeSpentChart );
 
-	}
+	};
 
 	p._onGithubActivityDataFail = function ( error, textStatus, errorThrown ) {
 		this.chartel.hide();
-	}
+	};
 
 	p._storeHandlebars = function ( data ) {
 		this.repoTemplate = Handlebars.compile(data);
 		this._processJSON ();
-	}
+	};
 
 	p._processJSON = function () {
 		if (this.repoJSON && this.repoTemplate) {
@@ -158,7 +158,7 @@
 				dataType: 'text'
 			})
 		).then( $.proxy(this._onGithubActivityDataSuccess, this), $.proxy(this._onGithubActivityDataFail, this));
-	}
+	};
 
 	window.Github = Github;
 
