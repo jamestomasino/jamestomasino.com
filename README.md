@@ -13,6 +13,7 @@ github@jamestomasino.com
 
 ####2014-01-28####
 
+ * __cleaning up linting errors__ (`James Tomasino`)
  * __moving into new structure__ (`James Tomasino`)
 
 ####2013-11-07####
