@@ -32,10 +32,10 @@
 
 		function trackLink (event) {
 			event.preventDefault();
-			var context = event.context;
-			var text = context.text;
+			var context = event.currentTarget;
+			var text = context.innerText;
 			var href = context.href;
-			var tag = event.currentTarget.outerHTML;
+			var tag = context.outerHTML;
 
 			// Ignore anchor links from tracking.
 			if ( /href\=("|')#/i.test(tag) ) {
