@@ -1,0 +1,14 @@
+#!/bin/bash
+
+npm install -g grunt
+npm install -g grunt-cli
+npm install -g grunt-contrib-jshint
+npm install -g grunt-contrib-uglify
+npm install -g grunt-contrib-qunit
+npm install -g grunt-barkeep
+npm install -g grunt-contrib-compass
+npm install -g grunt-contrib-watch
+npm install -g grunt-beep
+npm install -g grunt-todos
+npm install -g grunt-jsonlint
+npm install -g grunt-exec
