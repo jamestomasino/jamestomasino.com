@@ -11,8 +11,14 @@ github@jamestomasino.com
 
 ## COMMIT LOG ##
 
+####2014-01-30####
+
+ * __cant install grunt globally. thats bull__ (`James Tomasino`)
+ * __added setup__ (`James Tomasino`)
+
 ####2014-01-28####
 
+ * __fixed analytics targeting__ (`James Tomasino`)
  * __fixing path in head.js__ (`James Tomasino`)
  * __cleaning up linting errors__ (`James Tomasino`)
  * __moving into new structure__ (`James Tomasino`)
