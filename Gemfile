@@ -1,5 +1,4 @@
 source "http://rubygems.org"
-gem 'susy'
 gem 'compass'
 gem 'sass'
 gem 'guard'
