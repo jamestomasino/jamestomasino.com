@@ -13,6 +13,7 @@ github@jamestomasino.com
 
 ####2014-06-13####
 
+ * __font pathing fixed__ (`James Tomasino`)
  * __fixed linkedin scraper__ (`James Tomasino`)
 
 ####2014-02-04####
