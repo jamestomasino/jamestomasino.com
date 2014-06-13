@@ -40,7 +40,7 @@
 		var desc = '';
 		for (var i = 0; i < Math.min(9, this.searchContent.length); ++i){
 			try {
-				title = this.searchContent[i].getElementsByClassName('title')[0].innerText;
+				title = this.searchContent[i].getElementsByClassName('title')[0].innerHTML;
 				org = this.searchContent[i].getElementsByClassName('org')[0].innerHTML;
 				period = this.searchContent[i].getElementsByClassName('period')[0].innerHTML;
 				desc = this.searchContent[i].getElementsByClassName('description')[0].innerHTML;

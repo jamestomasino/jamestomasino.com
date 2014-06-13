@@ -11,6 +11,10 @@ github@jamestomasino.com
 
 ## COMMIT LOG ##
 
+####2014-02-04####
+
+ * adding global setup script cause i hate node (`James Tomasino`)
+
 ####2014-01-30####
 
  * __cant install grunt globally. thats bull__ (`James Tomasino`)
