@@ -1,11 +1,15 @@
 (function(window, document, $) {
 	"use strict";
 
-	var Twitter = function ( elID, twitterID, parentEl, icon ) {
+	var startTime, endTime;
+
+	var Twitter = function ( elID, twitterID, parentEl, icon, analytics ) {
+		startTime = new Date().getTime();
 		this.el = $(elID);
 		this.parentEl = $(parentEl);
 		this.twitterID = twitterID;
 		this.icon = $(icon);
+		this.analytics = analytics;
 
 		var twitter_feed = "http://cdn.syndication.twimg.com/widgets/timelines/" + this.twitterID + "?&lang=en&suppress_response_codes=true&rnd=" + Math.random();
 		$.when (
@@ -15,7 +19,7 @@
 			})
 		).then( $.proxy(this._onDataSuccess, this), $.proxy(this._onDataFail,this) );
 
-	}
+	};
 
 	var p = Twitter.prototype;
 
@@ -40,12 +44,16 @@
 		}
 
 		this.icon.removeClass('disabled');
-	}
+		endTime = new Date().getTime();
+		var timeSpent = endTime - startTime;
+		this.analytics.trackTime( 'twitter', timeSpent );
+
+	};
 
 	p._onDataFail = function ( error ) {
 		this.parentEl.hide();
 		this.icon.css({opacity:0.5});
-	}
+	};
 
 	window.Twitter = Twitter;
 

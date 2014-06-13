@@ -12,16 +12,21 @@
 	var timeDelta = 100000000;
 	var lastQueryDate = store.get ('jamestomasino_github_lastquery');
 	var d = new Date();
+	var startTimeRepo, endTimeRepo;
+	var startTimeChart, endTimeChart;
 
-	var Github = function ( contentid, chartid, parentid, icon ) {
-		this.repoJSON
-		this.repoTemplate;
+	var Github = function ( contentid, chartid, parentid, icon, analytics ) {
+
+		startTimeRepo = new Date().getTime();
+
+		this.repoJSON = {};
+		this.repoTemplate = {};
 
 		this.contentel = $(contentid);
 		this.chartel = $(chartid);
 		this.parentel = $(parentid);
 		this.icon = $(icon);
-
+		this.analytics = analytics;
 		this.contentID = contentid;
 		this.chartID = chartid;
 		this.parentID = parentid;
@@ -43,12 +48,11 @@
 		} else {
 			this._onGithubRepoDataFail();
 		}
-	}
+	};
 
 	var p = Github.prototype;
 
 	p._onGithubRepoDataSuccess = function ( repoHandlebars, repoData ) {
-
 		this.repoTemplate = Handlebars.compile(repoHandlebars[0]);
 		this.repoJSON = repoData[0].data;
 		if (this.repoJSON && this.repoJSON.message && (this.repoJSON.message.search('API Rate Limit Exceeded' != -1))) {
@@ -56,25 +60,34 @@
 		} else {
 			store.set ('jamestomasino_github_lastquery', d);
 			store.set ('jamestomasino_github', this.repoJSON );
+			startTimeChart = new Date().getTime();
 			this._processJSON ();
 			this.icon.removeClass('disabled');
+			endTimeRepo = new Date().getTime();
+			var timeSpentRepo = endTimeRepo - startTimeRepo;
+			this.analytics.trackTime( 'github-repo', timeSpentRepo );
+
 		}
-	}
+	};
 
 	p._onGithubRepoDataFail = function ( error ) {
+		startTimeChart = new Date().getTime();
 		this.repoJSON = store.get ('jamestomasino_github');
 		if (this.repoJSON && this.repoJSON.message && (this.repoJSON.message.search('API Rate Limit Exceeded' != -1))) {
 			store.clear(); // Something horrible happened. Lets reset.
 			this.parentel.hide();
 			this.icon.css({opacity:0.5});
-		} else if (this.repoJSON == undefined ){
+		} else if (this.repoJSON === undefined ){
 			this.parentel.hide();
 			this.icon.css({opacity:0.5});
 		} else {
 			this.icon.removeClass('disabled');
 			$.ajax (githubTemplatePath).then( $.proxy(this._storeHandlebars, this) );
 		}
-	}
+		endTimeRepo = new Date().getTime();
+		var timeSpentRepo = endTimeRepo - startTimeRepo;
+		this.analytics.trackTime( 'github-repo', timeSpentRepo );
+	};
 
 
 	p._onGithubActivityDataSuccess = function ( activityData ) {
@@ -109,16 +122,20 @@
 
 		});
 		this.chartel.show();
-	}
+		endTimeChart = new Date().getTime();
+		var timeSpentChart = endTimeChart - startTimeChart;
+		this.analytics.trackTime( 'github-chart', timeSpentChart );
+
+	};
 
 	p._onGithubActivityDataFail = function ( error, textStatus, errorThrown ) {
 		this.chartel.hide();
-	}
+	};
 
 	p._storeHandlebars = function ( data ) {
 		this.repoTemplate = Handlebars.compile(data);
 		this._processJSON ();
-	}
+	};
 
 	p._processJSON = function () {
 		if (this.repoJSON && this.repoTemplate) {
@@ -141,7 +158,7 @@
 				dataType: 'text'
 			})
 		).then( $.proxy(this._onGithubActivityDataSuccess, this), $.proxy(this._onGithubActivityDataFail, this));
-	}
+	};
 
 	window.Github = Github;
 
