@@ -11,6 +11,10 @@ github@jamestomasino.com
 
 ## COMMIT LOG ##
 
+####2014-06-13####
+
+ * __fixed linkedin scraper__ (`James Tomasino`)
+
 ####2014-02-04####
 
  * adding global setup script cause i hate node (`James Tomasino`)
