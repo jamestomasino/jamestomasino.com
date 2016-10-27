@@ -1,0 +1,8 @@
+#=================================================================================
+# Deployment
+#=================================================================================
+
+deploy:
+	s3_website push --site=. --config-dir "$$HOME/.s3config/jamestomasino.com/"
+
+#  vim: set shiftwidth=4 tabstop=4 noexpandtab:
