@@ -1,0 +1,83 @@
+==================================================================
+https://keybase.io/jamestomasino
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of http://jamestomasino.com
+  * I am jamestomasino (https://keybase.io/jamestomasino) on keybase.
+  * I have a public key with fingerprint 90CE 0E1E DC68 EA7E 1D86  CAF3 A90C 3A31 6279 2911
+
+To claim this, I am signing this object:
+
+{
+    "body": {
+        "client": {
+            "name": "keybase.io node.js client",
+            "version": "0.7.1"
+        },
+        "key": {
+            "fingerprint": "90ce0e1edc68ea7e1d86caf3a90c3a3162792911",
+            "host": "keybase.io",
+            "key_id": "A90C3A3162792911",
+            "uid": "c008ad6b4742d083820664c49c730600",
+            "username": "jamestomasino"
+        },
+        "merkle_root": {
+            "ctime": 1411518854,
+            "hash": "e1421e2ab2e934f8e42e7ce4de9dd1f148b550b3c72b02ac62631d27c60454587a9f85b4182430a125f2b0f6f4a4a6eeeffdf5ffba00d8dc4a7024473d000192",
+            "seqno": 58713
+        },
+        "service": {
+            "hostname": "jamestomasino.com",
+            "protocol": "http:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1411518899,
+    "expire_in": 157680000,
+    "prev": "3ca01d95349acc0ff9f78dffb7318b8f386df8796a049f80bc3be46721bd3a59",
+    "seqno": 5,
+    "tag": "signature"
+}
+
+with the aforementioned key, yielding the PGP signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: GnuPG/MacGPG2 v2.0.22 (Darwin)
+Comment: GPGTools - https://gpgtools.org
+
+owFtkntQFVUcx+8FkUDkZY2aSrQzDkp4O2ffSzMEY6YpzgRaU0TA2T1nYS9w93bv
+5SkkRDOYGNZM5hiGBZaR8jCCIUMpH2N6AcdBk7C3JEE0BoLgJGO7DM1o019nz/4+
+v+/5fn/nvLXQ1xJobQiKhXLR6jCrd1i2bKXCvtpGyTouomK3UUqORhwe88uBcgkV
+S2WTIhm5iU3TIx06Jja7O3KOiaHyicut6Q6DAjbBBqnSGBM3m1XNkUlcTpdmalES
+UAggkGCFFwkSCMQiryCVQUaBQQzkaUGiJQgNySzd7bnvVGpWM13Dxt8ECaxlEu7j
+82YLCgAiwrzMCiyNgciINOB5VmElRWAAD4AJuolrLpLdWNwePRe5NYdums4lruwc
+ku7S9dnkikczOchCyEFR5FjDFnJnGZ0EsjQkNJJpIjGsKhKWJoJCWEwkjKEKWVHm
+OCAzikDLgEYKT/MMxLSg8IDlWE4UkKSKnMxCkWYZgCDNqQao8iqLWMQTQlQVq5yq
+yggALGKFRQKgWVZgMAAASrSRw01eMUzHGlqQKTW3rnxNIaZtc3T/l9Cm6LlGo9Ol
+e3RFzzHKWR6PM9YM7ilqd5p8AZHT55TSZc2Bjdu793qhgf5nKJIUQ5FCp+Yi6ZpJ
+cAIvGh6BeQ7JNyQZBQGIJY5hJaQoQFUlVRCxEU1goCiLKiPyWBUFiUeANYYCZIWR
+CcsLNJQxgzjpnqiGT5RpSLq1TAfy5LkIVfqGz/J5FmugZb6fj/l+LYEBof8+6njf
+kJmI4931+27Wnoo6N+ENnaQGdTx86cjTkPE/9NrdOnmkU6kd+GZqPLPrr/rNI73R
+62Fb5S87fFekZV0vLlx5oMtKbRg4GlNv2zs1uvdQcfTQr/bk4B2L/apXVa5q2Xp3
+V4einvUPWtsU8mdv2vcNdHXiA2u6g88FBA5lnzo4b2Z0Z0SQp2/jqhRg26J/tPTD
+0MMVHYUDr0fvw2fwtfifIhvar4Z9PDB6t+Fze3gYmhj+ru7y5oyNids7cjiwPcn+
+8LedvRY+LuvIutSn3q+90zD4WfPxgPYF/rv6H811DhZk+i6x4fXLPh1+qKDr2tUn
+F2/JmVjn54xMLrmCb9xxxCc1vWPVByp+F+svnexcceyTjtX7h1DrqbHk8g0/ppVf
+yKgNz/D26AcrjrmfqYkIvuVzfo8YPD7x3HsLvmyxqc09Xu5w3pA782RX6pqW6sa/
+mduNfnnLXRaye5Etfn/R5FR/397BhsLppqFWVPlS0w9Jf7RGrSvf/WbrhTb/knfr
+jnZXd450X5mZXnnixrPeMxXzN/UGdF8sGduZ/ar0Rd/bZeM1Kbfh+f7+PS9UpYbE
+nWh+Mafv1hlmU1TN2ZklZaelKkW0DrbRPSsS8xsnbydcTkuqROSDGO/J0Odjk63F
+C8Pxg85lP2962Z7yeOpFeVHcUu8TZc0Jj6hFYwdOx0tf2x+7+VttQs/1LdNRVT7/
+AA==
+=qR2n
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/jamestomasino
+
+==================================================================

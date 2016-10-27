@@ -1,0 +1,286 @@
+# Page settings
+
+baseurl = "https://jamestomasino.com/"
+languageCode = "en-us"
+title = "James Tomasino's Resume"
+theme = "hugo-orbit-theme"
+googleAnalytics = "UA-7902638-1"
+
+# Do not build files for websites. Need them? Set to false
+disableRSS = true
+disableSitemap = false
+disable404 = false
+
+[params]
+
+# Meta
+    description = "Resume/CV for James Tomasino"
+    author = "James Tomasino"
+
+# Theme styles
+
+    # The original template comes with 6 colour schemes. You may choose styles below.
+    # "styles.css", "styles-2.css", "styles-3.css", "styles-4.css", "styles-5.css", "styles-6.css"
+    # are available. Also the source LESS files are included so
+    # it’s quick and easy to change the styling and colour scheme.
+
+    styles = "styles-4.css"
+
+# Sidebar sections
+
+    # Profile section
+    [params.profile]
+        name = "James Tomasino"
+        tagline = "Professional Thinker"
+        avatar = "profile.png"
+
+    # Contact section
+    [params.contact]
+        enable = true
+
+        [[params.contact.list]]
+        class = "email"
+        icon = "fa-envelope"
+        url = "mailto: info@tomasino.org"
+        title = "info@tomasino.org"
+
+        [[params.contact.list]]
+        class = "phone"
+        icon = "fa-phone"
+        url = "tel:+14109293008"
+        title = "+14109293008"
+
+        [[params.contact.list]]
+        class = "website"
+        icon = "fa-globe"
+        url = "//tomasino.org"
+        title = "tomasino.org"
+
+        [[params.contact.list]]
+        class = "linkedin"
+        icon = "fa-linkedin"
+        url = "//linkedin.com/in/jamestomasino"
+        title = "jamestomasino"
+
+        [[params.contact.list]]
+        class = "github"
+        icon = "fa-github"
+        url = "//github.com/jamestomasino"
+        title = "jamestomasino"
+
+        [[params.contact.list]]
+        class = "twitter"
+        icon = "fa-twitter"
+        url = "//twitter.com/mr_ino"
+        title = "@mr_ino"
+
+    # Education section
+    [params.education]
+        enable = true
+        title = "Education"
+
+        [[params.education.list]]
+        degree = "MS in Media Arts and Sciences"
+        college = "Indiana University"
+        dates = "2005 - 2006"
+
+        [[params.education.list]]
+        degree = "BS in Media Arts and Sciences"
+        college = "Indiana University"
+        dates = "2002 - 2004"
+
+        [[params.education.list]]
+        degree = "Nuclear Electronics"
+        college = "US Navy Nuclear Power School"
+        dates = "2000 - 2001"
+
+        [[params.education.list]]
+        degree = "Computer Science"
+        college = "Rowan University"
+        dates = "1998 - 2000"
+
+    # Languages section
+    [params.languages]
+        enable = true
+        title = "Languages"
+
+        [[params.languages.list]]
+        language = "English"
+        level = "Native"
+
+        [[params.languages.list]]
+        language = "Italian"
+        level = "Basic Proficiency"
+
+        [[params.languages.list]]
+        language = "Icelandic"
+        level = "Rudimentary"
+
+    # Interests section
+    [params.interests]
+        enable = true
+        title = "Interests"
+
+        [[params.interests.list]]
+        interest = "Backcountry camping"
+
+        [[params.interests.list]]
+        interest = "Writing/Reading"
+
+        [[params.interests.list]]
+        interest = "Boardgames"
+
+        [[params.interests.list]]
+        interest = "Musical performance"
+
+        [[params.interests.list]]
+        interest = "Eskrima/Kali"
+
+        [[params.interests.list]]
+        interest = "Learning everything"
+
+        [[params.interests.list]]
+        interest = "Data privacy"
+
+        [[params.interests.list]]
+        interest = "Cryptography"
+
+        [[params.interests.list]]
+        interest = "vim"
+
+# Main body sections
+
+    # You may use markdown in summary, details and intro fields. But don't overdose, it's resume!:)
+
+    # Summary section
+    [params.summary]
+        enable = true
+        icon = "fa-user"
+        title = "Career Profile"
+        summary = "Innovator and investigator with a broad variety of experience in technology, digital strategy and analytics. Passionate for data-driven, customer-focused storytelling as a means to interactive relationships."
+
+    # Experiences section
+    [params.experiences]
+        enable = true
+        icon = "fa-briefcase"
+        title = "Experiences"
+
+        [[params.jobs.list]]
+        position = "VP, Regional Technology Director"
+        dates = "2013 - Present"
+        company = "GSW, East Coast USA"
+        details = "Leader in strategic digital vision for client brands and internal growth across our New York and Pennsylvania offices. Responsible for research into new technologies and emerging digital trends.  Manage and direct development teams in multiple locations. Guide and mentor developers through client-centric work and internal training."
+
+        [[params.jobs.list]]
+        position = "Technology Director, CSM"
+        dates = "2012 - 2013"
+        company = "GSW, Pennsylvania"
+        details = "Manage team of developers on a variety of mobile and web projects across multiple brands and strategies. Key component in discovery of new technologies and their applicability to brands. Leader in pitch work, strategic planning, and high level technical discussions with partners and clients. Client and team technology educator."
+
+        [[params.jobs.list]]
+        position = "Senior Developer"
+        dates = "2011 - 2012"
+        company = "GSW, Pennsylvania"
+        details = "Interactive web, mobile, and tablet experiences for a variety of pharmaceutical brands. Developed iPad and Android tablet sales pieces. Led teams building rich informational applications for the web in HTML5 and Flash, and in a variety of mobile platforms. Coached and trained other developers to increase the team’s productivity and effectiveness."
+
+        [[params.jobs.list]]
+        position = "Jesuit Novice"
+        dates = "2010 - 2011"
+        company = "Society of Jesus (Jesuits), Maryland Province"
+        details = "Rigorous prayer & study life with an dual focus on contemplative prayer and applying that lifestyle through a variety of social apostolates including teaching in a Catholic grade school and pastoral care to terminally ill hospice patients. Studis included a survey of the history of religious life, the foundational documents of the Society of Jesus, and both theory and practice at the art of communal life."
+
+        [[params.jobs.list]]
+        position = "Development Team Lead"
+        dates = "2009 - 2010"
+        company = "Empathy Lab, Pennsylvania"
+        details = "Developed interactive games, microsites, user experiences, and animations for companies like Sprout, Lexmark, Sesame Street and many more. Developed a large scale streaming video application built off Adobe's Open Source Media Framework, Akamai's Open Video Player, utilizing PureMVC and a variety of custom made tracking tools for integrating Omniture, Comscore, Google Analytics, and others."
+
+        [[params.jobs.list]]
+        position = "Senior Developer"
+        dates = "2008 - 2009"
+        company = "Moxie Interactive, Georgia"
+        details = "Developed frameworks for rich landing pages, advertising campaigns, and product spotlights. Built rich media banners, websites, social networking applications and landing pages for clients such as Coke, Home Depot, Verizon, Verizon Wireless, Fox, UPS and Maybelline. Lead and architected large-scale web marketing campaigns while managing the development team."
+
+        [[params.jobs.list]]
+        position = "Designer / Developer"
+        dates = "2006 - 2008"
+        company = "Pango Media, Alaska"
+        details = "Responsible for management, design and development of web sites, interactive CDs, mobile and desktop applications and print materials across clients in the oil industry, private commercial sector, and government."
+
+    # Projects section
+    [params.projects]
+        enable = true
+        icon = "fa-archive"
+        title = "Projects"
+        intro = "Side projects reveal our passions and champion our weirdness."
+
+        [[params.projects.list]]
+        title = "Read Plugin for Chrome"
+        url = "https://github.com/jamestomasino/read_plugin"
+        tagline = "**Speed reading via rapid serial visual presentation** - This plugin for Google Chrome allows you to quickly digest content from a website by presenting the text using the principles of <a href='https://en.wikipedia.org/wiki/Rapid_serial_visual_presentation'>rapid serial visual presentation</a>. It uses the <a href='//readability.com'>Readability</a> service to grab only the important information. Highly configureable with data syncing. Instrumental in the quest to learn everything."
+
+        [[params.projects.list]]
+        title = "Boilerplate"
+        url = "https://github.com/jamestomasino/boilerplate"
+        tagline = "**No Dependencies** - My custom written, vanilla-js implementation of a dependency-free development framework using microlibraries. It's extremely small and extremely fast. It also speaks to my skeptisism about 'framework-of-the-week' and my passion for 'build-it-yourself' mentality."
+
+        [[params.projects.list]]
+        title = "Dotfiles"
+        url = "https://github.com/jamestomasino/dotfiles"
+        tagline = "**/whois tomasino** - In a sense, a developer's identity is closely connected to their dotfiles. I take great care in my configuration, designed to be quickly cloned and installed when needed. Regularly updated."
+
+        [[params.projects.list]]
+        title = "Tomasino Labs"
+        url = "https://labs.tomasino.org"
+        tagline = "**Where good ideas run short on time** - Most of my experiments don't warrant a full repository or website. This blog is where I capture those mini-projects and thoughts on their potential."
+
+    # Skills section
+    [params.skills]
+        enable = true
+        icon = "fa-rocket"
+        title = "Skills & Proficiency"
+
+        [[params.skills.list]]
+        skill = "Technical Leadership"
+        level = "100%"
+
+        [[params.skills.list]]
+        skill = "Digital Strategy"
+        level = "95%"
+
+        [[params.skills.list]]
+        skill = "Analytics"
+        level = "93%"
+
+        [[params.skills.list]]
+        skill = "Javascript"
+        level = "100%"
+
+        [[params.skills.list]]
+        skill = "R"
+        level = "85%"
+
+        [[params.skills.list]]
+        skill = "Python"
+        level = "70%"
+
+        [[params.skills.list]]
+        skill = "PHP"
+        level = "70%"
+
+        [[params.skills.list]]
+        skill = "Ruby/C#/Java/..."
+        level = "30%"
+
+        [[params.skills.list]]
+        skill = "Adobe Suite"
+        level = "80%"
+
+        [[params.skills.list]]
+        skill = "Office Suite"
+        level = "90%"
+
+    # Footer section
+
+    [params.footer]
+        copyright = "James Tomasino"
