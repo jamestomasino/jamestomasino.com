@@ -1,0 +1,7 @@
+# TEAM
+	James Tomasino - @mr_ino
+
+# SITE
+	Language: English
+	Technology: HTML5, CSS3
+	IDE: vim
