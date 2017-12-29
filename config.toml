@@ -68,12 +68,6 @@ disable404 = false
         url = "//github.com/jamestomasino"
         title = "jamestomasino"
 
-        [[params.contact.list]]
-        class = "twitter"
-        icon = "fa-twitter"
-        url = "//twitter.com/mr_ino"
-        title = "@mr_ino"
-
     # Education section
     [params.education]
         enable = true
