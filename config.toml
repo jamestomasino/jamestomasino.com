@@ -47,6 +47,12 @@ disable404 = false
         [[params.contact.list]]
         class = "phone"
         icon = "fa-phone"
+        url = "tel:+3546182997"
+        title = "+3546182997"
+
+        [[params.contact.list]]
+        class = "phone"
+        icon = "fa-phone"
         url = "tel:+14109293008"
         title = "+14109293008"
 
@@ -160,8 +166,14 @@ disable404 = false
         title = "Experiences"
 
         [[params.jobs.list]]
+        position = "Freelance Developer / Digital Strategist"
+        dates = "2019 - Present"
+        company = ""
+        details = ""
+
+        [[params.jobs.list]]
         position = "VP, Regional Technology Director"
-        dates = "2013 - Present"
+        dates = "2013 - 2019"
         company = "GSW, East Coast USA"
         details = "Leader in strategic digital vision for client brands and internal growth across our New York and Pennsylvania offices. Responsible for research into new technologies and emerging digital trends.  Manage and direct development teams in multiple locations. Guide and mentor developers through client-centric work and internal training."
 
