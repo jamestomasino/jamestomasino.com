@@ -172,6 +172,12 @@ disable404 = false
         details = ""
 
         [[params.jobs.list]]
+        position = "Managing Partner, Technology Lead"
+        dates = "2019 - Present"
+        company = "Princeton 10, New Jersey"
+        details = "Oversees the technical operations, strategy, and development of client work across all engagements. Hands-on programming of websites, interactive visual aids, emails, banners, conference installations, and many other products. Digital strategy leadership, analytics implementation, analysis, and reporting. Management of extended team, oversight of code quality. Client technical liason."
+
+        [[params.jobs.list]]
         position = "VP, Regional Technology Director"
         dates = "2013 - 2019"
         company = "GSW, East Coast USA"
