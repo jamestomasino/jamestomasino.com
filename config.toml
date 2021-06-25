@@ -221,24 +221,19 @@ disable404 = false
         intro = "Side projects reveal our passions and champion our weirdness."
 
         [[params.projects.list]]
-        title = "Read Plugin for Chrome"
-        url = "https://github.com/jamestomasino/read_plugin"
-        tagline = "**Speed reading via rapid serial visual presentation** - This plugin for Google Chrome allows you to quickly digest content from a website by presenting the text using the principles of <a href='https://en.wikipedia.org/wiki/Rapid_serial_visual_presentation'>rapid serial visual presentation</a>. It uses the <a href='//readability.com'>Readability</a> service to grab only the important information. Highly configureable with data syncing. Instrumental in the quest to learn everything."
-
-        [[params.projects.list]]
-        title = "Boilerplate"
-        url = "https://github.com/jamestomasino/boilerplate"
-        tagline = "**No Dependencies** - My custom written, vanilla-js implementation of a dependency-free development framework using microlibraries. It's extremely small and extremely fast. It also speaks to my skeptisism about 'framework-of-the-week' and my passion for 'build-it-yourself' mentality."
-
-        [[params.projects.list]]
-        title = "Dotfiles"
-        url = "https://github.com/jamestomasino/dotfiles"
-        tagline = "**/whois tomasino** - In a sense, a developer's identity is closely connected to their dotfiles. I take great care in my configuration, designed to be quickly cloned and installed when needed. Regularly updated."
+        title = "Stutter Browser Add-on"
+        url = "https://github.com/jamestomasino/"
+        tagline = "**A Rapid Serial Visual Presentation (RSVP) extension for modern web browsers.** - This add-on for Chrome, Firefox, and Edge allows you to quickly digest content from a website by presenting the text using the principles of <a href='https://en.wikipedia.org/wiki/Rapid_serial_visual_presentation'>rapid serial visual presentation</a>. It is highly configureable and supports data syncing. Instrumental in the quest to learn everything."
 
         [[params.projects.list]]
         title = "Tomasino Labs"
         url = "https://labs.tomasino.org"
         tagline = "**Where good ideas run short on time** - Most of my experiments don't warrant a full repository or website. This blog is where I capture those mini-projects and thoughts on their potential."
+
+        [[params.projects.list]]
+        title = "Cosmic Voyage"
+        url = "https://cosmic.voyage"
+        tagline = "**Semi-collaborative Science Fiction Writing** - This is a small writing community which I created and operate geared toward writing short science fiction stories in a shared universe. It is run as a multi-user public access unix system with lots of tools, games, and supporting utilities to keep the community engaged. Plus we write stories!"
 
     # Skills section
     [params.skills]
